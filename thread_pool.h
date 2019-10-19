@@ -26,6 +26,9 @@ public:
     size_t queue_size() const;
 
 private:
+    void create_threads_(size_t n_threads);
+    void stop_all_threads_();
+
     bool exit_;
     std::mutex m_;
     std::atomic_bool cancel_;

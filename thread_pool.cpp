@@ -3,6 +3,12 @@
 thread_pool::thread_pool(size_t n_threads)
     : exit_(false)
 {
+    create_threads_(n_threads);
+}
+
+void thread_pool::create_threads_(size_t n_threads)
+{
+    th_.clear();
     for (size_t id = 0; id < n_threads; ++id)
     {
         th_.emplace_back(std::thread([this]
@@ -23,7 +29,6 @@ thread_pool::thread_pool(size_t n_threads)
                 auto ts = queue_.back();
                 queue_.pop_back();
 
-                ts->canc_.store(false);
                 ts->cancelled_ = [ts, this]() -> bool
                 {
                     return ts->canc_.load() || cancel_.load();
@@ -43,7 +48,7 @@ thread_pool::thread_pool(size_t n_threads)
     }
 }
 
-thread_pool::~thread_pool()
+void thread_pool::stop_all_threads_()
 {
     cancel_.store(true);
     {
@@ -57,18 +62,27 @@ thread_pool::~thread_pool()
     }
 }
 
+thread_pool::~thread_pool()
+{
+    stop_all_threads_();
+}
+
 void thread_pool::abort()
 {
+    stop_all_threads_();
+
+    cancel_.store(false);
     {
         std::unique_lock<std::mutex> lg(m_);
-        std::list<std::shared_ptr<task>>().swap(queue_);
+        queue_.clear();
+        exit_ = false;
     }
-    cancel_.store(true);
+
+    create_threads_(th_.size());
 }
 
 void thread_pool::enqueue(std::shared_ptr<task> task_)
 {
-    cancel_.store(false);
     {
         std::unique_lock<std::mutex> lg(m_);
         queue_.push_front(task_);

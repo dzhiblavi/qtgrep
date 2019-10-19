@@ -29,6 +29,7 @@ void grep_task::run()
     {
         QDirIterator it(path_,
                         QDir::Dirs
+                      | QDir::AllEntries
                       | QDir::Files
                       | QDir::NoSymLinks
                       | QDir::NoDotAndDotDot
@@ -42,6 +43,13 @@ void grep_task::run()
                 return;
             }
             it.next();
+
+            std::unique_lock<std::mutex> lg(parent_->m_);
+            if (parent_->used_.find(it.filePath()) != parent_->used_.end())
+            {
+                continue;
+            }
+            parent_->used_.insert(path_);
 
             enq_(std::make_shared<grep_task>(it.filePath(), substr_, enq_,
                                              parent_ == this ? this : parent_));
