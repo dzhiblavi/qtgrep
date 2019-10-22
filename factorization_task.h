@@ -11,6 +11,7 @@ public:
 
 private:
     void run() override;
+    void prepare() override;
 
     mutable std::mutex m_;
     uint64_t n_;

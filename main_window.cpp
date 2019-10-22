@@ -15,7 +15,8 @@ main_window::main_window(QWidget *parent)
 
     connect(ui->pushButton, &QPushButton::clicked, this, [this]
     {
-        tpool.abort();
+        if (gtask)
+            gtask->cancel();
     });
 
     connect(ui->pushButton_2, &QPushButton::clicked, this, [this]
@@ -27,11 +28,19 @@ main_window::main_window(QWidget *parent)
     {
         QString path = QFileDialog::getExistingDirectory(this, "Select Directory for grepping",
                                                          QString(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
         QString substr = ui->lineEdit->text();
 
-        tpool.abort();
-        ui->textEdit->clear();
+        if (gtask)
+            gtask->cancel();
 
+        if (path == QString())
+        {
+            gtask = nullptr;
+            return;
+        }
+
+        ui->textEdit->clear();
         gtask = std::shared_ptr<grep_task>(new grep_task(path, substr,
                                            [&](std::shared_ptr<task> t) { tpool.enqueue(t); }));
         tpool.enqueue(gtask);
@@ -93,10 +102,12 @@ void main_window::show_result_() {
     }
 
     QString appended;
-    for (auto s : res)
+    for (size_t i = 0; i < std::min(res.size(), size_t(1000)); ++i)
     {
-        appended += s;
+        appended += res[i];
     }
+    if (res.size() > 1000)
+        appended += "...";
     ui->textEdit->append(appended);
 }
 

@@ -58,3 +58,10 @@ std::pair<bool, std::vector<uint64_t>> factorization_task::get_result() const
     std::unique_lock<std::mutex> lg(m_);
     return { incomplete_, res_ };
 }
+
+void factorization_task::prepare()
+{
+    canc_.store(false);
+    res_.clear();
+    incomplete_ = true;
+}

@@ -18,11 +18,12 @@ public:
 
 protected:
     bool is_cancelled() const;
+    std::atomic_bool canc_;
 
 private:
     virtual void run() = 0;
+    virtual void prepare() = 0;
 
-    std::atomic_bool canc_;
     std::function<bool()> cancelled_;
 };
 

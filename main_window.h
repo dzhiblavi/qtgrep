@@ -2,6 +2,7 @@
 #define MAIN_WINDOW_H
 
 #include <iostream>
+#include <algorithm>
 
 #include <QMainWindow>
 #include <QTimer>

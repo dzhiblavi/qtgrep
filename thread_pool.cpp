@@ -83,6 +83,7 @@ void thread_pool::abort()
 
 void thread_pool::enqueue(std::shared_ptr<task> task_)
 {
+    task_->prepare();
     {
         std::unique_lock<std::mutex> lg(m_);
         queue_.push_front(task_);
