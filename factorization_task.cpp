@@ -4,16 +4,14 @@ factorization_task::factorization_task(uint64_t n)
     : n_(n)
 {}
 
-void factorization_task::run()
-{
+void factorization_task::run() {
     uint64_t num = n_;
 
     {
         std::unique_lock<std::mutex> lg(m_);
         incomplete_ = true;
     }
-    if (num == 1)
-    {
+    if (num == 1) {
         {
             std::unique_lock<std::mutex> lg(m_);
             incomplete_ = false;
@@ -21,16 +19,12 @@ void factorization_task::run()
         return;
     }
 
-    for (uint64_t i = 2; i <= num; ++i)
-    {
-        if (is_cancelled())
-        {
+    for (uint64_t i = 2; i <= num; ++i) {
+        if (is_cancelled()) {
             return;
         }
-        while (num % i == 0)
-        {
-            if (is_cancelled())
-            {
+        while (num % i == 0) {
+            if (is_cancelled()) {
                 return;
             }
             {
@@ -40,8 +34,7 @@ void factorization_task::run()
             num /= i;
         }
     }
-    if (num != 1)
-    {
+    if (num != 1) {
         {
             std::unique_lock<std::mutex> lg(m_);
             res_.push_back(num);
@@ -53,14 +46,12 @@ void factorization_task::run()
     }
 }
 
-std::pair<bool, std::vector<uint64_t>> factorization_task::get_result() const
-{
+std::pair<bool, std::vector<uint64_t>> factorization_task::get_result() const {
     std::unique_lock<std::mutex> lg(m_);
     return { incomplete_, res_ };
 }
 
-void factorization_task::prepare()
-{
+void factorization_task::prepare() {
     canc_.store(false);
     res_.clear();
     incomplete_ = true;

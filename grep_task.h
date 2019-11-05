@@ -3,6 +3,7 @@
 
 #include <set>
 #include <iostream>
+#include <stack>
 
 #include <QString>
 #include <QFile>
@@ -11,9 +12,8 @@
 
 #include "task.h"
 
-class grep_task : public task
-{
-    friend void run_grep(QString path, grep_task* gt);
+class grep_task : public task {
+    friend class file_grep_subtask;
 
 public:
     grep_task(QString path, QString substr,
@@ -22,6 +22,9 @@ public:
     std::vector<QString> get_result() const;
     void clear_result();
 
+    int total_files() const;
+    int completed_files() const;
+
 private:
     void run() override;
     void prepare() override;
@@ -29,24 +32,24 @@ private:
     QString path_;
     QString substr_;
 
+    int total_;
+    std::atomic_int complete_;
+
     mutable std::mutex m_;
 
     std::vector<QString> res_;
-    std::set<QString> used_;
     std::function<void(std::shared_ptr<task>)> enq_;
 };
 
-class grep_subtask : public task
-{
+class file_grep_subtask : public task {
 public:
-    grep_subtask(QString path, grep_task* parent);
+    file_grep_subtask(QString path, grep_task* parent);
 
 private:
     void run() override;
-    void prepare() override;
 
     QString path_;
-    grep_task* parent;
+    grep_task* parent_;
 };
 
 #endif // GREP_TASK_H

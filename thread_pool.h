@@ -11,8 +11,7 @@
 
 #include "task.h"
 
-class thread_pool // : QObject
-{
+class thread_pool {
 private:
 //    Q_OBJECT
 

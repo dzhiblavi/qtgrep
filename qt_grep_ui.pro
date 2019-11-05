@@ -16,7 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    factorization_task.cpp \
     grep_task.cpp \
     main.cpp \
     main_window.cpp \
@@ -24,7 +23,6 @@ SOURCES += \
     thread_pool.cpp
 
 HEADERS += \
-    factorization_task.h \
     grep_task.h \
     main_window.h \
     task.h \

@@ -7,22 +7,20 @@
 
 class thread_pool;
 
-class task
-{
+class task {
     friend class thread_pool;
 
 public:
     virtual ~task() = default;
-
     void cancel();
+    bool is_cancelled() const;
 
 protected:
-    bool is_cancelled() const;
     std::atomic_bool canc_;
 
 private:
     virtual void run() = 0;
-    virtual void prepare() = 0;
+    virtual void prepare() {}
 
     std::function<bool()> cancelled_;
 };

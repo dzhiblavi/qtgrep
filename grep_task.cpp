@@ -7,93 +7,74 @@ grep_task::grep_task(QString path, QString substr,
     , enq_(enqueue)
 {}
 
-grep_subtask::grep_subtask(QString path, grep_task* parent)
-    : path_(path)
-    , parent(parent)
-{}
+void grep_task::run() {
+    QString path = path_;
 
-void run_grep(QString path, grep_task* gt)
-{
-    QDir dir(path);
-    if (dir.exists())
-    {
-        QDirIterator it(path,
-                        QDir::Dirs
+    QDir dir(path_);
+    if (dir.exists()) {
+        QDirIterator it(path_,
+                        QDir::Files
                       | QDir::AllEntries
-                      | QDir::Files
                       | QDir::NoSymLinks
                       | QDir::NoDotAndDotDot
-                      | QDir::Readable,
-                        QDirIterator::Subdirectories);
+                      | QDir::Readable
+                      , QDirIterator::Subdirectories);
 
-        while (it.hasNext())
-        {
-            if (gt->is_cancelled())
-            {
+        while (it.hasNext()) {
+            if (is_cancelled())
                 return;
-            }
+
             it.next();
-
-            std::unique_lock<std::mutex> lg(gt->m_);
-            if (gt->used_.find(it.filePath()) != gt->used_.end())
-            {
-                continue;
-            }
-            gt->used_.insert(it.filePath());
-            gt->enq_(std::make_shared<grep_subtask>(it.filePath(), gt));
-        }
-        return;
-    }
-
-    QFile file(path);
-    if (file.exists())
-    {
-        file.open(QFile::ReadOnly | QFile::Text);
-        while (!file.atEnd())
-        {
-            if (gt->is_cancelled())
-            {
-                return;
-            }
-            QByteArray line = file.readLine();
-
-            if (line.indexOf(gt->substr_) != -1)
-            {
-                std::unique_lock<std::mutex> lg(gt->m_);
-                gt->res_.push_back(path + ":" + line);
-            }
+            enq_(std::make_shared<file_grep_subtask>(it.filePath(), this));
+            ++total_;
         }
     }
 }
 
-void grep_task::run()
-{
-    run_grep(path_, this);
+int grep_task::total_files() const {
+    return total_;
 }
 
-void grep_task::prepare()
-{
-    used_.clear();
+int grep_task::completed_files() const {
+    return complete_.load();
+}
+
+void grep_task::prepare() {
+    total_ = complete_ = 0;
     res_.clear();
     canc_.store(false);
 }
 
-void grep_subtask::run()
-{
-    run_grep(path_, parent);
-}
-
-void grep_subtask::prepare()
+file_grep_subtask::file_grep_subtask(QString path, grep_task* parent)
+    : path_(path)
+    , parent_(parent)
 {}
 
-std::vector<QString> grep_task::get_result() const
-{
+void file_grep_subtask::run() {
+    QFile file(path_);
+    if (file.exists()) {
+        file.open(QFile::ReadOnly
+                | QFile::Text);
+        while (!file.atEnd()) {
+            if (parent_->is_cancelled())
+                return;
+
+            QByteArray line = file.readLine();
+            if (line.indexOf(parent_->substr_) != -1) {
+                std::unique_lock<std::mutex> lg(parent_->m_);
+                parent_->res_.push_back(path_ + ":" + line);
+            }
+        }
+    }
+    ++parent_->complete_;
+}
+
+std::vector<QString> grep_task::get_result() const {
     std::unique_lock<std::mutex> lg(m_);
     return res_;
 }
 
-void grep_task::clear_result()
-{
+void grep_task::clear_result() {
     std::unique_lock<std::mutex> lg(m_);
     res_.clear();
 }
