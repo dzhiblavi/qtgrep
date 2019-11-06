@@ -15,9 +15,8 @@ void thread_pool::create_threads_(size_t n_threads) {
                     return !queue_.empty() || exit_;
                 });
 
-                if (exit_) {
+                if (exit_)
                     break;
-                }
 
                 auto ts = queue_.back();
                 queue_.pop_back();
