@@ -20,20 +20,26 @@ public:
               std::function<void(std::shared_ptr<task>)> const& enqueue);
 
     std::vector<QString> get_result() const;
+    std::vector<QString> get_result(size_t count) const;
     void clear_result();
 
     int total_files() const;
     int completed_files() const;
+    bool found_all() const;
 
 private:
     void run() override;
     void prepare() override;
+
+    template <typename F>
+    void iterate_over_directory_(F&& f);
 
     QString path_;
     QString substr_;
 
     int total_;
     std::atomic_int complete_;
+    bool found_all_;
 
     mutable std::mutex m_;
 

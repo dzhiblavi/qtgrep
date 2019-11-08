@@ -3,6 +3,7 @@
 
 main_window::main_window(QWidget *parent)
     : QMainWindow(parent)
+    , status(READY)
     , ui(new Ui::main_window)
     , gtask(nullptr)
     , tpool(8) {
@@ -10,66 +11,121 @@ main_window::main_window(QWidget *parent)
 
     QCommonStyle style;
     ui->actionScanDirectory->setIcon(style.standardIcon(QCommonStyle::SP_DialogOpenButton));
-    ui->progressBar->setValue(0);
-    ui->progressBar->setTextVisible(true);
 
-    connect(ui->pushButton, &QPushButton::clicked, this, [this] {
-        if (gtask)
-            gtask->cancel();
-    });
+    connect(ui->searchlineEdit, &QLineEdit::textChanged, this, [this](QString new_dir) {
+        if (new_dir.startsWith("~/")) {
+            new_dir.replace(0, 1, QDir::homePath());
+            ui->searchlineEdit->setText(new_dir);
+        }
 
-    connect(ui->pushButton_2, &QPushButton::clicked, this, [this] {
-        ui->textEdit->clear();
+        QPalette palette = ui->searchlineEdit->palette();
+        if (QDir(new_dir).exists() || QFile(new_dir).exists()) {
+            palette.setColor(ui->searchlineEdit->foregroundRole(), Qt::black);
+        } else {
+            palette.setColor(ui->searchlineEdit->foregroundRole(), Qt::red);
+        }
+        ui->searchlineEdit->setPalette(palette);
     });
 
     connect(ui->actionScanDirectory, &QAction::triggered, this, [this]() {
-        QString path = QFileDialog::getExistingDirectory(this, "Select Directory for grepping",
-                                                         QString(), QFileDialog::DontResolveSymlinks);
+        QString path = QFileDialog::getExistingDirectory(this, "Select Directory",
+                                                         QString(),
+                                                         QFileDialog::ShowDirsOnly
+                                                       | QFileDialog::DontResolveSymlinks);
+        ui->searchlineEdit->setText(path);
+    });
 
-        QString substr = ui->lineEdit->text();
+    connect(ui->substringClearButton, &QPushButton::clicked, this, [this] {
+        ui->substringLineEdit->clear();
+    });
 
-        if (gtask)
+    connect(ui->searchClearButton, &QPushButton::clicked, this, [this] {
+        ui->searchlineEdit->clear();
+    });
+
+    connect(ui->resultClearButton, &QPushButton::clicked, this, [this] {
+        ui->resultTextEdit->clear();
+    });
+
+    connect(ui->cancelButton, &QPushButton::clicked, this, [this] {
+        if (gtask) {
             gtask->cancel();
-
-        if (path == QString()) {
-            gtask = nullptr;
-            return;
+            gtask.reset();
         }
+    });
 
-        ui->textEdit->clear();
-        gtask = std::make_shared<grep_task>(path, substr, [&](std::shared_ptr<task> t) { tpool.enqueue(t); });
-        tpool.enqueue(gtask);
+    connect(ui->searchButton, &QPushButton::clicked, this, [this] {
+        QString substr = ui->substringLineEdit->text();
+        QString dir = ui->searchlineEdit->text();
+
+        if (QDir(dir).exists() || QFile(dir).exists()) {
+            if (gtask) {
+                gtask->cancel();
+            }
+            ui->resultTextEdit->clear();
+            gtask = std::make_shared<grep_task>(dir, substr, [&](std::shared_ptr<task> t) { tpool.enqueue(t); });
+            tpool.enqueue(gtask);
+        } else {
+            ui->logTextEdit->append("No such file or directory");
+        }
     });
 
     timer.setInterval(250);
     timer.start();
     connect(&timer, &QTimer::timeout, this, [this] {
-        if (!gtask)
-            return;
+        update_ui();
+    });
+}
 
-        auto res = gtask->get_result();
+void main_window::update_ui() {
+    if (!gtask) {
+        status = READY;
+        ui->poolLoadN->display(0);
+    } else {
+        auto res = gtask->get_result(101);
         gtask->clear_result();
 
-        ui->lcdNumber_2->display((int)tpool.queue_size());
-        if (gtask->total_files() != gtask->completed_files()) {
+        ui->poolLoadN->display((int)tpool.queue_size());
+        if (gtask->found_all()) {
             ui->progressBar->setRange(0, (int)gtask->total_files());
             ui->progressBar->setValue((int)gtask->completed_files());
+            status = SEARCH;
         } else {
+            status = SFILES;
             ui->progressBar->setValue(0);
         }
 
-        if (res.empty())
+        if (res.empty()) {
             return;
+        }
 
         QString appended;
-        for (size_t i = 0; i < std::min(res.size(), size_t(1000)); ++i) {
+        for (size_t i = 0; i < std::min((size_t)100, res.size()); ++i) {
             appended += res[i];
         }
-        if (res.size() > 1000)
+        if (res.size() > 100) {
             appended += "...";
+        }
+        ui->resultTextEdit->insertHtml(appended);
+    }
 
-        ui->textEdit->append(appended);
-    });
+    switch (status) {
+        case READY:
+            ui->progressBar->hide();
+            ui->searchLabel->hide();
+            ui->readyLabel->show();
+            break;
+        case SFILES:
+            ui->progressBar->hide();
+            ui->readyLabel->hide();
+            ui->searchLabel->show();
+            break;
+        case SEARCH:
+            ui->readyLabel->hide();
+            ui->searchLabel->hide();
+            ui->progressBar->show();
+            break;
+    }
 }
 
 main_window::~main_window() {

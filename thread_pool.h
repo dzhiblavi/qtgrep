@@ -21,7 +21,6 @@ public:
 
     void enqueue(std::shared_ptr<task> task_);
     void abort();
-
     size_t queue_size() const;
 
 private:

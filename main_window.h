@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QCommonStyle>
 #include <QFileDialog>
+#include <QColorDialog>
 
 #include "thread_pool.h"
 #include "grep_task.h"
@@ -24,6 +25,14 @@ public:
     ~main_window();
 
 private:
+    enum STATUS {
+        READY,
+        SFILES,
+        SEARCH
+    } status;
+
+    void update_ui();
+
     Ui::main_window* ui;
     QTimer timer;
 
