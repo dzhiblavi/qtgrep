@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QDirIterator>
 #include <QDir>
+#include <QTextStream>
 
 #include "task.h"
 

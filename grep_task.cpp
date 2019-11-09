@@ -79,8 +79,8 @@ void file_grep_subtask::run() {
             int index = line.indexOf(parent_->substr_);
             if (index != -1) {
                 line.insert(index + parent_->substr_.size(), QString("</font><br>"));
-                std::unique_lock<std::mutex> lg(parent_->m_);
                 line.insert(index, QString("<font color=\"Red\">"));
+                std::unique_lock<std::mutex> lg(parent_->m_);
                 parent_->res_.push_back(path_ + ":" + line);
             }
         }
