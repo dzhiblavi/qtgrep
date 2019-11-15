@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-#include "task.h"
+class task;
 
 class thread_pool {
 private:
@@ -20,8 +20,10 @@ public:
     ~thread_pool();
 
     void enqueue(std::shared_ptr<task> task_);
+    size_t queue_size() const noexcept;
+
     void abort();
-    size_t queue_size() const;
+    bool is_aborted() const noexcept;
 
 private:
     void create_threads_(size_t n_threads);

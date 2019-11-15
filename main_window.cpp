@@ -49,8 +49,10 @@ main_window::main_window(QWidget *parent)
 
     connect(ui->cancelButton, &QPushButton::clicked, this, [this] {
         if (gtask) {
+            std::cerr << "CANCELLING TASK" << std::endl;
             gtask->cancel();
             gtask.reset();
+            std::cerr << "CANCELLED TASK" << std::endl;
         }
     });
 
@@ -63,7 +65,7 @@ main_window::main_window(QWidget *parent)
                 gtask->cancel();
             }
             ui->resultTextEdit->clear();
-            gtask = std::make_shared<grep_task>(dir, substr, [&](std::shared_ptr<task> t) { tpool.enqueue(t); });
+            gtask = std::make_shared<grep_task>(dir, substr, tpool);
             tpool.enqueue(gtask);
         } else {
             ui->logTextEdit->append("No such file or directory");

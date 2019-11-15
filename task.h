@@ -5,24 +5,18 @@
 #include <vector>
 #include <thread>
 
-class thread_pool;
+#include "thread_pool.h"
 
 class task {
-    friend class thread_pool;
+protected:
+    thread_pool& tp_;
 
 public:
+    task(thread_pool& tp);
     virtual ~task() = default;
-    void cancel();
-    bool is_cancelled() const;
 
-protected:
-    std::atomic_bool canc_;
-
-private:
     virtual void run() = 0;
-    virtual void prepare() {}
-
-    std::function<bool()> cancelled_;
+    virtual void prepare();
 };
 
 #endif // TASK_H

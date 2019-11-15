@@ -1,4 +1,5 @@
 #include "thread_pool.h"
+#include "task.h"
 
 thread_pool::thread_pool(size_t n_threads)
     : exit_(false) {
@@ -22,10 +23,6 @@ void thread_pool::create_threads_(size_t n_threads) {
                 auto ts = queue_.back();
                 queue_.pop_back();
 
-                ts->cancelled_ = [ts, this]() -> bool {
-                    return ts->canc_.load() || cancel_.load();
-                };
-
                 lg.unlock();
                 try {
                     ts->run();
@@ -33,8 +30,6 @@ void thread_pool::create_threads_(size_t n_threads) {
                     // ...
                 }
                 lg.lock();
-
-                // ...
             }
         }));
     }
@@ -69,6 +64,10 @@ void thread_pool::abort() {
     create_threads_(th_.size());
 }
 
+bool thread_pool::is_aborted() const noexcept {
+    return cancel_.load();
+}
+
 void thread_pool::enqueue(std::shared_ptr<task> task_) {
     task_->prepare();
     {
@@ -78,7 +77,7 @@ void thread_pool::enqueue(std::shared_ptr<task> task_) {
     work_cv_.notify_all();
 }
 
-size_t thread_pool::queue_size() const {
+size_t thread_pool::queue_size() const noexcept {
     return queue_.size();
 }
 

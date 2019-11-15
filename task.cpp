@@ -1,9 +1,7 @@
 #include "task.h"
 
-void task::cancel() {
-    canc_.store(true);
-}
+task::task(thread_pool& tp)
+    : tp_(tp)
+{}
 
-bool task::is_cancelled() const {
-    return cancelled_();
-}
+void task::prepare() {}
