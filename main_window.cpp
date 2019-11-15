@@ -77,7 +77,7 @@ main_window::main_window(QWidget *parent)
 }
 
 void main_window::update_ui() {
-    if (!gtask) {
+    if (!gtask || gtask->is_cancelled()) {
         status = READY;
         ui->poolLoadN->display(0);
     } else {
@@ -105,7 +105,7 @@ void main_window::update_ui() {
         if (res.size() > 100) {
             appended += "...";
         }
-        ui->resultTextEdit->insertHtml(appended);
+        ui->resultTextEdit->insertPlainText(appended);
     }
 
     switch (status) {

@@ -14,10 +14,10 @@ class task;
 
 class thread_pool {
 public:
-    thread_pool(size_t n_threads = 8);
+    explicit thread_pool(size_t n_threads = 8);
     ~thread_pool();
 
-    void enqueue(std::shared_ptr<task> task_);
+    void enqueue(std::shared_ptr<task> const& task);
     size_t queue_size() const noexcept;
 
     void abort();
@@ -25,7 +25,7 @@ public:
 
 private:
     void create_threads_(size_t n_threads);
-    void stop_all_threads_();
+    void stop_all_threads_() noexcept;
 
     bool exit_;
     std::mutex m_;

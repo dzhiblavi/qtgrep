@@ -19,7 +19,7 @@ class grep_task : public task {
 
     template <typename F>
     void iterate_over_directory_(F&& f);
-    void enqueue_(std::shared_ptr<task> tsk);
+    void enqueue_(std::shared_ptr<task> const& tsk);
 
     QString path_;
     QString substr_;
@@ -45,11 +45,10 @@ public:
     QString search_path() const noexcept;
     QString substring() const noexcept;
 
-    void push_result(QString line);
-
     int total_files() const noexcept;
     int completed_files() const noexcept;
     bool found_all() const noexcept;
+    bool finished() const noexcept;
 
     void run() override;
     void prepare() override;
@@ -58,12 +57,16 @@ public:
 class file_grep_subtask : public task {
 public:
     file_grep_subtask(QString path, grep_task* parent, thread_pool& tp);
-
     void run() override;
 
 private:
+    void patch_result();
+    void add_result(QString line, int index, int lineid);
+    QString construct_result(QString const& line, int index, int lineid);
+
     QString path_;
     grep_task* parent_;
+    std::vector<QString> result_;
 };
 
 #endif // GREP_TASK_H

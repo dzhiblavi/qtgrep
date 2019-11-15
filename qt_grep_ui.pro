@@ -20,7 +20,7 @@ SOURCES += \
     main.cpp \
     main_window.cpp \
     task.cpp \
-    thread_pool.cpp \
+thread_pool.cpp
 
 HEADERS += \
     grep_task.h \

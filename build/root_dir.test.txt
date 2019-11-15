@@ -1,0 +1,911 @@
+7::504::\makeMPintoPDFobject=\count12
+4::38::    int a[N], b[N], c[N]
+8::50::        int carry_const = 
+8::51::        int carry_linear = 
+7::504::\makeMPintoPDFobject=\count12
+7::495::\makeMPintoPDFobject=\count12
+56::188::/tex/latex/preprint/fullpage.sty
+56::189::/tex/latex/preprint/fullpage.sty
+79::247::gfmathfunctions.integerarithmetics.
+77::249::clayer/pgfcorepoints.code.tex
+74::105::clayer/pgfcorepoints.code.tex" 1480
+76::125::gfmathfunctions.integerarithmetics.
+53::255::/tex/latex/preprint/fullpage.sty" 1
+18::800::\g_MT_multlinerow_int=\count11
+12::805::\l_MT_above_intertext_sep=\dime
+12::806::\l_MT_below_intertext_sep=\dime
+17::807::l_MT_above_shortintertext_sep=\dime
+17::808::l_MT_below_shortintertext_sep=\dime
+9::873::Package: intcalc 2016/05/16 
+12::888::Package: bigintcalc 2016/05/16 
+47::930:: mode ON; LaTeX internals redefined
+81::967::/tex/latex/preprint/fullpage.sty
+626::1064::gfmathfunctions.integerarithmetics.
+75::1066::clayer/pgfcorepoints.code.tex
+15::1067::File: pgfcorepoints.code.tex 2013/
+7::1462::\makeMPintoPDFobject=\count18
+36::143::, title=Индекс, intoc]
+56::188::/tex/latex/preprint/fullpage.sty
+56::189::/tex/latex/preprint/fullpage.sty
+79::247::gfmathfunctions.integerarithmetics.
+77::249::clayer/pgfcorepoints.code.tex
+74::68::clayer/pgfcorepoints.code.tex" 1480
+76::88::gfmathfunctions.integerarithmetics.
+53::217::/tex/latex/preprint/fullpage.sty" 1
+18::800::\g_MT_multlinerow_int=\count11
+12::805::\l_MT_above_intertext_sep=\dime
+12::806::\l_MT_below_intertext_sep=\dime
+17::807::l_MT_above_shortintertext_sep=\dime
+17::808::l_MT_below_shortintertext_sep=\dime
+9::873::Package: intcalc 2016/05/16 
+12::888::Package: bigintcalc 2016/05/16 
+47::930:: mode ON; LaTeX internals redefined
+81::967::/tex/latex/preprint/fullpage.sty
+626::1064::gfmathfunctions.integerarithmetics.
+75::1066::clayer/pgfcorepoints.code.tex
+15::1067::File: pgfcorepoints.code.tex 2013/
+7::1463::\makeMPintoPDFobject=\count18
+56::188::/tex/latex/preprint/fullpage.sty
+56::189::/tex/latex/preprint/fullpage.sty
+79::247::gfmathfunctions.integerarithmetics.
+77::249::clayer/pgfcorepoints.code.tex
+74::105::clayer/pgfcorepoints.code.tex" 1480
+76::125::gfmathfunctions.integerarithmetics.
+53::255::/tex/latex/preprint/fullpage.sty" 1
+18::800::\g_MT_multlinerow_int=\count11
+12::805::\l_MT_above_intertext_sep=\dime
+12::806::\l_MT_below_intertext_sep=\dime
+17::807::l_MT_above_shortintertext_sep=\dime
+17::808::l_MT_below_shortintertext_sep=\dime
+9::873::Package: intcalc 2016/05/16 
+12::888::Package: bigintcalc 2016/05/16 
+47::930:: mode ON; LaTeX internals redefined
+81::967::/tex/latex/preprint/fullpage.sty
+626::1064::gfmathfunctions.integerarithmetics.
+75::1066::clayer/pgfcorepoints.code.tex
+15::1067::File: pgfcorepoints.code.tex 2013/
+7::1463::\makeMPintoPDFobject=\count18
+5::240::    \int_a^b{f_n} \xrigh
+13::245::    \ar[d]^{\int{}} & f \ar[d]^{
+27::246::   & & & & & & \int_a^b{f_n} \ar@{-
+15::247::              \int_a^b{f}
+11::253::    \left|\int_a^b{f_n} - \int
+11::262::    \left|\int_a^b{f_n} - \int
+15::272::    \phi(y) = \int_{x_1}^{x_2}{f(x
+16::276::    \phi'(y) = \int_{x_1}^{x_2}{f'_
+17::282::   \frac{1}{n} \int_{x_1}^{x_2}{\le
+34::284::t{Лагранж}}{=} \int_{x_1}^{x_2}{f'_
+5::303::    \int_{x_1}^{x_2}{g_n
+5::304::    \int_{x_1}^{x_2}{f'_
+5::310::    \int_{x_1}^{x_2}{f'_
+5::333::    \int_{x_0}^{x_1}{f'_
+5::334::    \int_{x_0}^{x_1}{\f
+35::339::\to +\infty]{} \int_{x_0}^{x_1}{\f}
+5::343::    \int_{x_0}^{x_1}{\f}
+5::440::    \int_a^b{S(x) \, dx}
+5::444::    \int_a^b{\sum_{n = 1
+18::445::  1}^{+\infty}{\int_a^b{u_n(x) \, d
+5::453::    \int_a^b{S_N(x) \, d
+22::458::um_{n = 1}^{N}{\int_a^b{u_n(x) \, d
+5::459::    \int_a^b{S_N(x) \, d
+28::464::= 1}^{+\infty}{\int_a^b{u_n(x) \, d
+28::698:: \Rightarrow y_{intersect~Oy} = b
+9::360::Package: intcalc 2016/05/16 
+12::375::Package: bigintcalc 2016/05/16 
+47::417:: mode ON; LaTeX internals redefined
+18::505::\g_MT_multlinerow_int=\count12
+12::510::\l_MT_above_intertext_sep=\dime
+12::511::\l_MT_below_intertext_sep=\dime
+17::512::l_MT_above_shortintertext_sep=\dime
+17::513::l_MT_below_shortintertext_sep=\dime
+7::600::\makeMPintoPDFobject=\count13
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1287::strator CS6 (Macintosh)</xmp:Creato
+33::1298::HasVisibleOverprint>False</xmpTPg:H
+34::1427::         <xmpG:tint>100.000000</xmp
+34::1437::         <xmpG:tint>100.000000</xmp
+34::1447::         <xmpG:tint>100.000000</xmp
+34::1457::         <xmpG:tint>100.000000</xmp
+34::1467::         <xmpG:tint>100.000000</xmp
+34::1477::         <xmpG:tint>100.000000</xmp
+34::1487::         <xmpG:tint>100.000000</xmp
+34::1497::         <xmpG:tint>100.000000</xmp
+34::1507::         <xmpG:tint>100.000000</xmp
+34::1517::         <xmpG:tint>100.000000</xmp
+34::1527::         <xmpG:tint>100.000000</xmp
+34::1537::         <xmpG:tint>100.000000</xmp
+65::1583::strator CS6 (Macintosh)</stEvt:soft
+394::1946::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::987::strator CS6 (Macintosh)</xmp:Creato
+33::998::HasVisibleOverprint>False</xmpTPg:H
+34::1127::         <xmpG:tint>100.000000</xmp
+34::1137::         <xmpG:tint>100.000000</xmp
+34::1147::         <xmpG:tint>100.000000</xmp
+34::1157::         <xmpG:tint>100.000000</xmp
+34::1167::         <xmpG:tint>100.000000</xmp
+34::1177::         <xmpG:tint>100.000000</xmp
+34::1187::         <xmpG:tint>100.000000</xmp
+34::1197::         <xmpG:tint>100.000000</xmp
+34::1207::         <xmpG:tint>100.000000</xmp
+34::1217::         <xmpG:tint>100.000000</xmp
+34::1227::         <xmpG:tint>100.000000</xmp
+34::1237::         <xmpG:tint>100.000000</xmp
+65::1283::strator CS6 (Macintosh)</stEvt:soft
+52::1394::strator CS6 (Macintosh)</xmp:Creato
+33::1405::HasVisibleOverprint>False</xmpTPg:H
+34::1534::         <xmpG:tint>100.000000</xmp
+34::1544::         <xmpG:tint>100.000000</xmp
+34::1554::         <xmpG:tint>100.000000</xmp
+34::1564::         <xmpG:tint>100.000000</xmp
+34::1574::         <xmpG:tint>100.000000</xmp
+34::1584::         <xmpG:tint>100.000000</xmp
+34::1594::         <xmpG:tint>100.000000</xmp
+34::1604::         <xmpG:tint>100.000000</xmp
+34::1614::         <xmpG:tint>100.000000</xmp
+34::1624::         <xmpG:tint>100.000000</xmp
+34::1634::         <xmpG:tint>100.000000</xmp
+34::1644::         <xmpG:tint>100.000000</xmp
+65::1690::strator CS6 (Macintosh)</stEvt:soft
+52::2007::strator CS6 (Macintosh)</xmp:Creato
+33::2018::HasVisibleOverprint>False</xmpTPg:H
+34::2147::         <xmpG:tint>100.000000</xmp
+34::2157::         <xmpG:tint>100.000000</xmp
+34::2167::         <xmpG:tint>100.000000</xmp
+34::2177::         <xmpG:tint>100.000000</xmp
+34::2187::         <xmpG:tint>100.000000</xmp
+34::2197::         <xmpG:tint>100.000000</xmp
+34::2207::         <xmpG:tint>100.000000</xmp
+34::2217::         <xmpG:tint>100.000000</xmp
+34::2227::         <xmpG:tint>100.000000</xmp
+34::2237::         <xmpG:tint>100.000000</xmp
+34::2247::         <xmpG:tint>100.000000</xmp
+34::2257::         <xmpG:tint>100.000000</xmp
+65::2303::strator CS6 (Macintosh)</stEvt:soft
+52::2321::strator CS6 (Macintosh)</xmp:Creato
+33::2332::HasVisibleOverprint>False</xmpTPg:H
+34::2461::         <xmpG:tint>100.000000</xmp
+34::2471::         <xmpG:tint>100.000000</xmp
+34::2481::         <xmpG:tint>100.000000</xmp
+34::2491::         <xmpG:tint>100.000000</xmp
+34::2501::         <xmpG:tint>100.000000</xmp
+34::2511::         <xmpG:tint>100.000000</xmp
+34::2521::         <xmpG:tint>100.000000</xmp
+34::2531::         <xmpG:tint>100.000000</xmp
+34::2541::         <xmpG:tint>100.000000</xmp
+34::2551::         <xmpG:tint>100.000000</xmp
+34::2561::         <xmpG:tint>100.000000</xmp
+34::2571::         <xmpG:tint>100.000000</xmp
+65::2617::strator CS6 (Macintosh)</stEvt:soft
+231::2941::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+56::5291::tor CC 2015 (Macintosh)</xmp:Creato
+69::5320::tor CC 2015 (Macintosh)</stEvt:soft
+39::5329::tartupProfile>Print</illustrator:St
+33::5335::HasVisibleOverprint>False</xmpTPg:H
+56::5916::tor CC 2015 (Macintosh)</xmp:Creato
+69::5945::tor CC 2015 (Macintosh)</stEvt:soft
+39::5954::tartupProfile>Print</illustrator:St
+33::5960::HasVisibleOverprint>False</xmpTPg:H
+56::6540::tor CC 2015 (Macintosh)</xmp:Creato
+69::6569::tor CC 2015 (Macintosh)</stEvt:soft
+39::6578::tartupProfile>Print</illustrator:St
+33::6584::HasVisibleOverprint>False</xmpTPg:H
+56::7164::tor CC 2015 (Macintosh)</xmp:Creato
+69::7193::tor CC 2015 (Macintosh)</stEvt:soft
+39::7202::tartupProfile>Print</illustrator:St
+33::7208::HasVisibleOverprint>False</xmpTPg:H
+56::7788::tor CC 2015 (Macintosh)</xmp:Creato
+69::7817::tor CC 2015 (Macintosh)</stEvt:soft
+39::7826::tartupProfile>Print</illustrator:St
+33::7832::HasVisibleOverprint>False</xmpTPg:H
+56::8412::tor CC 2015 (Macintosh)</xmp:Creato
+69::8441::tor CC 2015 (Macintosh)</stEvt:soft
+39::8450::tartupProfile>Print</illustrator:St
+33::8456::HasVisibleOverprint>False</xmpTPg:H
+56::9036::tor CC 2015 (Macintosh)</xmp:Creato
+69::9065::tor CC 2015 (Macintosh)</stEvt:soft
+39::9074::tartupProfile>Print</illustrator:St
+33::9080::HasVisibleOverprint>False</xmpTPg:H
+56::9660::tor CC 2015 (Macintosh)</xmp:Creato
+69::9689::tor CC 2015 (Macintosh)</stEvt:soft
+39::9698::tartupProfile>Print</illustrator:St
+33::9704::HasVisibleOverprint>False</xmpTPg:H
+56::10284::tor CC 2015 (Macintosh)</xmp:Creato
+69::10313::tor CC 2015 (Macintosh)</stEvt:soft
+39::10322::tartupProfile>Print</illustrator:St
+33::10328::HasVisibleOverprint>False</xmpTPg:H
+56::10908::tor CC 2015 (Macintosh)</xmp:Creato
+69::10937::tor CC 2015 (Macintosh)</stEvt:soft
+39::10946::tartupProfile>Print</illustrator:St
+33::10952::HasVisibleOverprint>False</xmpTPg:H
+56::11533::tor CC 2015 (Macintosh)</xmp:Creato
+69::11562::tor CC 2015 (Macintosh)</stEvt:soft
+39::11571::tartupProfile>Print</illustrator:St
+33::11577::HasVisibleOverprint>False</xmpTPg:H
+56::12157::tor CC 2015 (Macintosh)</xmp:Creato
+69::12186::tor CC 2015 (Macintosh)</stEvt:soft
+39::12195::tartupProfile>Print</illustrator:St
+33::12201::HasVisibleOverprint>False</xmpTPg:H
+51::14078::ustrator CC (Macintosh)</xmp:Creato
+65::14100::strator CS6 (Macintosh)</stEvt:soft
+64::14107::ustrator CC (Macintosh)</stEvt:soft
+39::14116::tartupProfile>Print</illustrator:St
+33::14122::HasVisibleOverprint>False</xmpTPg:H
+51::14701::ustrator CC (Macintosh)</xmp:Creato
+65::14723::strator CS6 (Macintosh)</stEvt:soft
+64::14730::ustrator CC (Macintosh)</stEvt:soft
+39::14739::tartupProfile>Print</illustrator:St
+33::14745::HasVisibleOverprint>False</xmpTPg:H
+51::15499::ustrator CC (Macintosh)</xmp:Creato
+65::15521::strator CS6 (Macintosh)</stEvt:soft
+64::15528::ustrator CC (Macintosh)</stEvt:soft
+39::15537::tartupProfile>Print</illustrator:St
+33::15543::HasVisibleOverprint>False</xmpTPg:H
+266::16488::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1188::strator CS6 (Macintosh)</xmp:Creato
+33::1199::HasVisibleOverprint>False</xmpTPg:H
+34::1328::         <xmpG:tint>100.000000</xmp
+34::1338::         <xmpG:tint>100.000000</xmp
+34::1348::         <xmpG:tint>100.000000</xmp
+34::1358::         <xmpG:tint>100.000000</xmp
+34::1368::         <xmpG:tint>100.000000</xmp
+34::1378::         <xmpG:tint>100.000000</xmp
+34::1388::         <xmpG:tint>100.000000</xmp
+34::1398::         <xmpG:tint>100.000000</xmp
+34::1408::         <xmpG:tint>100.000000</xmp
+34::1418::         <xmpG:tint>100.000000</xmp
+34::1428::         <xmpG:tint>100.000000</xmp
+34::1438::         <xmpG:tint>100.000000</xmp
+65::1484::strator CS6 (Macintosh)</stEvt:soft
+52::1792::strator CS6 (Macintosh)</xmp:Creato
+33::1803::HasVisibleOverprint>False</xmpTPg:H
+34::1932::         <xmpG:tint>100.000000</xmp
+34::1942::         <xmpG:tint>100.000000</xmp
+34::1952::         <xmpG:tint>100.000000</xmp
+34::1962::         <xmpG:tint>100.000000</xmp
+34::1972::         <xmpG:tint>100.000000</xmp
+34::1982::         <xmpG:tint>100.000000</xmp
+34::1992::         <xmpG:tint>100.000000</xmp
+34::2002::         <xmpG:tint>100.000000</xmp
+34::2012::         <xmpG:tint>100.000000</xmp
+34::2022::         <xmpG:tint>100.000000</xmp
+34::2032::         <xmpG:tint>100.000000</xmp
+34::2042::         <xmpG:tint>100.000000</xmp
+65::2088::strator CS6 (Macintosh)</stEvt:soft
+162::2378::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1367::strator CS6 (Macintosh)</xmp:Creato
+33::1378::HasVisibleOverprint>False</xmpTPg:H
+34::1507::         <xmpG:tint>100.000000</xmp
+34::1517::         <xmpG:tint>100.000000</xmp
+34::1527::         <xmpG:tint>100.000000</xmp
+34::1537::         <xmpG:tint>100.000000</xmp
+34::1547::         <xmpG:tint>100.000000</xmp
+34::1557::         <xmpG:tint>100.000000</xmp
+34::1567::         <xmpG:tint>100.000000</xmp
+34::1577::         <xmpG:tint>100.000000</xmp
+34::1587::         <xmpG:tint>100.000000</xmp
+34::1597::         <xmpG:tint>100.000000</xmp
+34::1607::         <xmpG:tint>100.000000</xmp
+34::1617::         <xmpG:tint>100.000000</xmp
+65::1663::strator CS6 (Macintosh)</stEvt:soft
+52::1900::strator CS6 (Macintosh)</xmp:Creato
+33::1911::HasVisibleOverprint>False</xmpTPg:H
+34::2040::         <xmpG:tint>100.000000</xmp
+34::2050::         <xmpG:tint>100.000000</xmp
+34::2060::         <xmpG:tint>100.000000</xmp
+34::2070::         <xmpG:tint>100.000000</xmp
+34::2080::         <xmpG:tint>100.000000</xmp
+34::2090::         <xmpG:tint>100.000000</xmp
+34::2100::         <xmpG:tint>100.000000</xmp
+34::2110::         <xmpG:tint>100.000000</xmp
+34::2120::         <xmpG:tint>100.000000</xmp
+34::2130::         <xmpG:tint>100.000000</xmp
+34::2140::         <xmpG:tint>100.000000</xmp
+34::2150::         <xmpG:tint>100.000000</xmp
+65::2196::strator CS6 (Macintosh)</stEvt:soft
+433::2585::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+313::473::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1078::strator CS6 (Macintosh)</xmp:Creato
+33::1089::HasVisibleOverprint>False</xmpTPg:H
+34::1218::         <xmpG:tint>100.000000</xmp
+34::1228::         <xmpG:tint>100.000000</xmp
+34::1238::         <xmpG:tint>100.000000</xmp
+34::1248::         <xmpG:tint>100.000000</xmp
+34::1258::         <xmpG:tint>100.000000</xmp
+34::1268::         <xmpG:tint>100.000000</xmp
+34::1278::         <xmpG:tint>100.000000</xmp
+34::1288::         <xmpG:tint>100.000000</xmp
+34::1298::         <xmpG:tint>100.000000</xmp
+34::1308::         <xmpG:tint>100.000000</xmp
+34::1318::         <xmpG:tint>100.000000</xmp
+34::1328::         <xmpG:tint>100.000000</xmp
+65::1374::strator CS6 (Macintosh)</stEvt:soft
+52::1645::strator CS6 (Macintosh)</xmp:Creato
+33::1656::HasVisibleOverprint>False</xmpTPg:H
+34::1785::         <xmpG:tint>100.000000</xmp
+34::1795::         <xmpG:tint>100.000000</xmp
+34::1805::         <xmpG:tint>100.000000</xmp
+34::1815::         <xmpG:tint>100.000000</xmp
+34::1825::         <xmpG:tint>100.000000</xmp
+34::1835::         <xmpG:tint>100.000000</xmp
+34::1845::         <xmpG:tint>100.000000</xmp
+34::1855::         <xmpG:tint>100.000000</xmp
+34::1865::         <xmpG:tint>100.000000</xmp
+34::1875::         <xmpG:tint>100.000000</xmp
+34::1885::         <xmpG:tint>100.000000</xmp
+34::1895::         <xmpG:tint>100.000000</xmp
+65::1941::strator CS6 (Macintosh)</stEvt:soft
+248::2453::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+33::552::HasVisibleOverprint>False</xmpTPg:H
+46::6750::g="x-default">Print</rdf:li>
+52::6759::strator CS6 (Macintosh)</xmp:Creato
+65::6781::strator CS6 (Macintosh)</stEvt:soft
+39::6790::tartupProfile>Print</illustrator:St
+33::6797::HasVisibleOverprint>True</xmpTPg:Ha
+46::7392::g="x-default">Print</rdf:li>
+52::7401::strator CS6 (Macintosh)</xmp:Creato
+65::7423::strator CS6 (Macintosh)</stEvt:soft
+39::7432::tartupProfile>Print</illustrator:St
+33::7439::HasVisibleOverprint>True</xmpTPg:Ha
+46::8034::g="x-default">Print</rdf:li>
+52::8043::strator CS6 (Macintosh)</xmp:Creato
+65::8065::strator CS6 (Macintosh)</stEvt:soft
+39::8074::tartupProfile>Print</illustrator:St
+33::8081::HasVisibleOverprint>True</xmpTPg:Ha
+46::8676::g="x-default">Print</rdf:li>
+52::8685::strator CS6 (Macintosh)</xmp:Creato
+65::8707::strator CS6 (Macintosh)</stEvt:soft
+39::8716::tartupProfile>Print</illustrator:St
+33::8723::HasVisibleOverprint>True</xmpTPg:Ha
+412::9418::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+46::248::g="x-default">Print</rdf:li>
+39::272::tartupProfile>Print</illustrator:St
+33::280::HasVisibleOverprint>False</xmpTPg:H
+36::625::mpG:groupName>Print Color Group</xm
+56::2625::tor CC 2015 (Macintosh)</xmp:Creato
+69::2649::tor CC 2015 (Macintosh)</stEvt:soft
+39::2658::tartupProfile>Print</illustrator:St
+33::2666::HasVisibleOverprint>False</xmpTPg:H
+36::3011::mpG:groupName>Print Color Group</xm
+397::3182::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+39::1287::tartupProfile>Print</illustrator:St
+33::1293::HasVisibleOverprint>False</xmpTPg:H
+34::1676::         <xmpG:tint>100.000000</xmp
+34::1686::         <xmpG:tint>100.000000</xmp
+34::1696::         <xmpG:tint>100.000000</xmp
+34::1706::         <xmpG:tint>100.000000</xmp
+34::1716::         <xmpG:tint>100.000000</xmp
+130::6117::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+310::1328::Design CS6 \(Macintosh\))/ModDate(D
+49::11::nDesign CS6 (Macintosh)</xmp:Creato
+62::32::nDesign CS6 (Macintosh)</stEvt:soft
+48::2118::hop CC 2015 (Macintosh)"
+55::2251::hop CC 2014 (Macintosh)"
+55::2263::hop CC 2014 (Macintosh)"
+55::2269::hop CC 2015 (Macintosh)"
+48::6269::hop CC 2015 (Macintosh)"
+55::6402::hop CC 2014 (Macintosh)"
+55::6414::hop CC 2014 (Macintosh)"
+55::6420::hop CC 2015 (Macintosh)"
+55::6601::hop CC 2015 (Macintosh)"
+53::6636::ign CC 2014 (Macintosh)</xmp:Creato
+53::11132::ign CC 2014 (Macintosh)</xmp:Creato
+53::15161::ign CC 2014 (Macintosh)</xmp:Creato
+53::24419::ign CC 2014 (Macintosh)</xmp:Creato
+63::24446::otoshop CS6 (Macintosh)</stEvt:soft
+46::24459::hotoshop for Macintosh -- Image Con
+53::24477::ign CC 2014 (Macintosh)</xmp:Creato
+53::27458::ign CC 2014 (Macintosh)</xmp:Creato
+55::36239::hop CC 2015 (Macintosh)"
+55::36316::hop CC 2015 (Macintosh)"
+44::36373::otoshop CS6 (Macintosh)"
+51::36392::otoshop CS6 (Macintosh)"
+55::36398::hop CC 2015 (Macintosh)"
+55::36560::hop CC 2015 (Macintosh)"
+13::36616::     <rdf:li>interior</rdf:li
+55::36655::hop CC 2015 (Macintosh)"
+55::36793::hop CC 2015 (Macintosh)"
+55::36885::hop CC 2015 (Macintosh)"
+55::36916::hop CC 2021 (Macintosh)"
+55::36946::hop CC 2021 (Macintosh)"
+55::36979::hop CC 2021 (Macintosh)"
+55::37011::hop CC 2021 (Macintosh)"
+48::37054::hop CC 2015 (Macintosh)"
+55::37187::hop CC 2014 (Macintosh)"
+55::37199::hop CC 2014 (Macintosh)"
+55::37205::hop CC 2015 (Macintosh)"
+55::37344::hop CC 2015 (Macintosh)"
+48::37456::hop CC 2015 (Macintosh)"
+55::37589::hop CC 2014 (Macintosh)"
+55::37601::hop CC 2014 (Macintosh)"
+55::37607::hop CC 2015 (Macintosh)"
+774::44853::Design CS6 \(Macintosh\))/ModDate(D
+49::11::nDesign CS6 (Macintosh)</xmp:Creato
+62::32::nDesign CS6 (Macintosh)</stEvt:soft
+125::599::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1162::strator CS6 (Macintosh)</xmp:Creato
+33::1173::HasVisibleOverprint>False</xmpTPg:H
+34::1302::         <xmpG:tint>100.000000</xmp
+34::1312::         <xmpG:tint>100.000000</xmp
+34::1322::         <xmpG:tint>100.000000</xmp
+34::1332::         <xmpG:tint>100.000000</xmp
+34::1342::         <xmpG:tint>100.000000</xmp
+34::1352::         <xmpG:tint>100.000000</xmp
+34::1362::         <xmpG:tint>100.000000</xmp
+34::1372::         <xmpG:tint>100.000000</xmp
+34::1382::         <xmpG:tint>100.000000</xmp
+34::1392::         <xmpG:tint>100.000000</xmp
+34::1402::         <xmpG:tint>100.000000</xmp
+34::1412::         <xmpG:tint>100.000000</xmp
+65::1458::strator CS6 (Macintosh)</stEvt:soft
+52::1902::strator CS6 (Macintosh)</xmp:Creato
+33::1913::HasVisibleOverprint>False</xmpTPg:H
+34::2042::         <xmpG:tint>100.000000</xmp
+34::2052::         <xmpG:tint>100.000000</xmp
+34::2062::         <xmpG:tint>100.000000</xmp
+34::2072::         <xmpG:tint>100.000000</xmp
+34::2082::         <xmpG:tint>100.000000</xmp
+34::2092::         <xmpG:tint>100.000000</xmp
+34::2102::         <xmpG:tint>100.000000</xmp
+34::2112::         <xmpG:tint>100.000000</xmp
+34::2122::         <xmpG:tint>100.000000</xmp
+34::2132::         <xmpG:tint>100.000000</xmp
+34::2142::         <xmpG:tint>100.000000</xmp
+34::2152::         <xmpG:tint>100.000000</xmp
+65::2198::strator CS6 (Macintosh)</stEvt:soft
+660::2496::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1062::strator CS6 (Macintosh)</xmp:Creato
+33::1073::HasVisibleOverprint>False</xmpTPg:H
+34::1202::         <xmpG:tint>100.000000</xmp
+34::1212::         <xmpG:tint>100.000000</xmp
+34::1222::         <xmpG:tint>100.000000</xmp
+34::1232::         <xmpG:tint>100.000000</xmp
+34::1242::         <xmpG:tint>100.000000</xmp
+34::1252::         <xmpG:tint>100.000000</xmp
+34::1262::         <xmpG:tint>100.000000</xmp
+34::1272::         <xmpG:tint>100.000000</xmp
+34::1282::         <xmpG:tint>100.000000</xmp
+34::1292::         <xmpG:tint>100.000000</xmp
+34::1302::         <xmpG:tint>100.000000</xmp
+34::1312::         <xmpG:tint>100.000000</xmp
+65::1358::strator CS6 (Macintosh)</stEvt:soft
+52::1618::strator CS6 (Macintosh)</xmp:Creato
+33::1629::HasVisibleOverprint>False</xmpTPg:H
+34::1758::         <xmpG:tint>100.000000</xmp
+34::1768::         <xmpG:tint>100.000000</xmp
+34::1778::         <xmpG:tint>100.000000</xmp
+34::1788::         <xmpG:tint>100.000000</xmp
+34::1798::         <xmpG:tint>100.000000</xmp
+34::1808::         <xmpG:tint>100.000000</xmp
+34::1818::         <xmpG:tint>100.000000</xmp
+34::1828::         <xmpG:tint>100.000000</xmp
+34::1838::         <xmpG:tint>100.000000</xmp
+34::1848::         <xmpG:tint>100.000000</xmp
+34::1858::         <xmpG:tint>100.000000</xmp
+34::1868::         <xmpG:tint>100.000000</xmp
+65::1914::strator CS6 (Macintosh)</stEvt:soft
+52::1968::strator CS6 (Macintosh)</xmp:Creato
+33::1979::HasVisibleOverprint>False</xmpTPg:H
+34::2108::         <xmpG:tint>100.000000</xmp
+34::2118::         <xmpG:tint>100.000000</xmp
+34::2128::         <xmpG:tint>100.000000</xmp
+34::2138::         <xmpG:tint>100.000000</xmp
+34::2148::         <xmpG:tint>100.000000</xmp
+34::2158::         <xmpG:tint>100.000000</xmp
+34::2168::         <xmpG:tint>100.000000</xmp
+34::2178::         <xmpG:tint>100.000000</xmp
+34::2188::         <xmpG:tint>100.000000</xmp
+34::2198::         <xmpG:tint>100.000000</xmp
+34::2208::         <xmpG:tint>100.000000</xmp
+34::2218::         <xmpG:tint>100.000000</xmp
+65::2264::strator CS6 (Macintosh)</stEvt:soft
+308::2588::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1260::strator CS6 (Macintosh)</xmp:Creato
+33::1271::HasVisibleOverprint>False</xmpTPg:H
+34::1400::         <xmpG:tint>100.000000</xmp
+34::1410::         <xmpG:tint>100.000000</xmp
+34::1420::         <xmpG:tint>100.000000</xmp
+34::1430::         <xmpG:tint>100.000000</xmp
+34::1440::         <xmpG:tint>100.000000</xmp
+34::1450::         <xmpG:tint>100.000000</xmp
+34::1460::         <xmpG:tint>100.000000</xmp
+34::1470::         <xmpG:tint>100.000000</xmp
+34::1480::         <xmpG:tint>100.000000</xmp
+34::1490::         <xmpG:tint>100.000000</xmp
+34::1500::         <xmpG:tint>100.000000</xmp
+34::1510::         <xmpG:tint>100.000000</xmp
+65::1556::strator CS6 (Macintosh)</stEvt:soft
+52::1774::strator CS6 (Macintosh)</xmp:Creato
+33::1785::HasVisibleOverprint>False</xmpTPg:H
+34::1914::         <xmpG:tint>100.000000</xmp
+34::1924::         <xmpG:tint>100.000000</xmp
+34::1934::         <xmpG:tint>100.000000</xmp
+34::1944::         <xmpG:tint>100.000000</xmp
+34::1954::         <xmpG:tint>100.000000</xmp
+34::1964::         <xmpG:tint>100.000000</xmp
+34::1974::         <xmpG:tint>100.000000</xmp
+34::1984::         <xmpG:tint>100.000000</xmp
+34::1994::         <xmpG:tint>100.000000</xmp
+34::2004::         <xmpG:tint>100.000000</xmp
+34::2014::         <xmpG:tint>100.000000</xmp
+34::2024::         <xmpG:tint>100.000000</xmp
+65::2070::strator CS6 (Macintosh)</stEvt:soft
+237::2466::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1052::strator CS6 (Macintosh)</xmp:Creato
+33::1063::HasVisibleOverprint>False</xmpTPg:H
+34::1192::         <xmpG:tint>100.000000</xmp
+34::1202::         <xmpG:tint>100.000000</xmp
+34::1212::         <xmpG:tint>100.000000</xmp
+34::1222::         <xmpG:tint>100.000000</xmp
+34::1232::         <xmpG:tint>100.000000</xmp
+34::1242::         <xmpG:tint>100.000000</xmp
+34::1252::         <xmpG:tint>100.000000</xmp
+34::1262::         <xmpG:tint>100.000000</xmp
+34::1272::         <xmpG:tint>100.000000</xmp
+34::1282::         <xmpG:tint>100.000000</xmp
+34::1292::         <xmpG:tint>100.000000</xmp
+34::1302::         <xmpG:tint>100.000000</xmp
+65::1348::strator CS6 (Macintosh)</stEvt:soft
+52::1660::strator CS6 (Macintosh)</xmp:Creato
+33::1671::HasVisibleOverprint>False</xmpTPg:H
+34::1800::         <xmpG:tint>100.000000</xmp
+34::1810::         <xmpG:tint>100.000000</xmp
+34::1820::         <xmpG:tint>100.000000</xmp
+34::1830::         <xmpG:tint>100.000000</xmp
+34::1840::         <xmpG:tint>100.000000</xmp
+34::1850::         <xmpG:tint>100.000000</xmp
+34::1860::         <xmpG:tint>100.000000</xmp
+34::1870::         <xmpG:tint>100.000000</xmp
+34::1880::         <xmpG:tint>100.000000</xmp
+34::1890::         <xmpG:tint>100.000000</xmp
+34::1900::         <xmpG:tint>100.000000</xmp
+34::1910::         <xmpG:tint>100.000000</xmp
+65::1956::strator CS6 (Macintosh)</stEvt:soft
+52::2052::strator CS6 (Macintosh)</xmp:Creato
+33::2063::HasVisibleOverprint>False</xmpTPg:H
+34::2192::         <xmpG:tint>100.000000</xmp
+34::2202::         <xmpG:tint>100.000000</xmp
+34::2212::         <xmpG:tint>100.000000</xmp
+34::2222::         <xmpG:tint>100.000000</xmp
+34::2232::         <xmpG:tint>100.000000</xmp
+34::2242::         <xmpG:tint>100.000000</xmp
+34::2252::         <xmpG:tint>100.000000</xmp
+34::2262::         <xmpG:tint>100.000000</xmp
+34::2272::         <xmpG:tint>100.000000</xmp
+34::2282::         <xmpG:tint>100.000000</xmp
+34::2292::         <xmpG:tint>100.000000</xmp
+34::2302::         <xmpG:tint>100.000000</xmp
+65::2348::strator CS6 (Macintosh)</stEvt:soft
+119::2703::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1051::strator CS6 (Macintosh)</xmp:Creato
+33::1062::HasVisibleOverprint>False</xmpTPg:H
+34::1191::         <xmpG:tint>100.000000</xmp
+34::1201::         <xmpG:tint>100.000000</xmp
+34::1211::         <xmpG:tint>100.000000</xmp
+34::1221::         <xmpG:tint>100.000000</xmp
+34::1231::         <xmpG:tint>100.000000</xmp
+34::1241::         <xmpG:tint>100.000000</xmp
+34::1251::         <xmpG:tint>100.000000</xmp
+34::1261::         <xmpG:tint>100.000000</xmp
+34::1271::         <xmpG:tint>100.000000</xmp
+34::1281::         <xmpG:tint>100.000000</xmp
+34::1291::         <xmpG:tint>100.000000</xmp
+34::1301::         <xmpG:tint>100.000000</xmp
+65::1347::strator CS6 (Macintosh)</stEvt:soft
+555::1905::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1287::strator CS6 (Macintosh)</xmp:Creato
+33::1298::HasVisibleOverprint>False</xmpTPg:H
+34::1427::         <xmpG:tint>100.000000</xmp
+34::1437::         <xmpG:tint>100.000000</xmp
+34::1447::         <xmpG:tint>100.000000</xmp
+34::1457::         <xmpG:tint>100.000000</xmp
+34::1467::         <xmpG:tint>100.000000</xmp
+34::1477::         <xmpG:tint>100.000000</xmp
+34::1487::         <xmpG:tint>100.000000</xmp
+34::1497::         <xmpG:tint>100.000000</xmp
+34::1507::         <xmpG:tint>100.000000</xmp
+34::1517::         <xmpG:tint>100.000000</xmp
+34::1527::         <xmpG:tint>100.000000</xmp
+34::1537::         <xmpG:tint>100.000000</xmp
+65::1583::strator CS6 (Macintosh)</stEvt:soft
+394::1946::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::987::strator CS6 (Macintosh)</xmp:Creato
+33::998::HasVisibleOverprint>False</xmpTPg:H
+34::1127::         <xmpG:tint>100.000000</xmp
+34::1137::         <xmpG:tint>100.000000</xmp
+34::1147::         <xmpG:tint>100.000000</xmp
+34::1157::         <xmpG:tint>100.000000</xmp
+34::1167::         <xmpG:tint>100.000000</xmp
+34::1177::         <xmpG:tint>100.000000</xmp
+34::1187::         <xmpG:tint>100.000000</xmp
+34::1197::         <xmpG:tint>100.000000</xmp
+34::1207::         <xmpG:tint>100.000000</xmp
+34::1217::         <xmpG:tint>100.000000</xmp
+34::1227::         <xmpG:tint>100.000000</xmp
+34::1237::         <xmpG:tint>100.000000</xmp
+65::1283::strator CS6 (Macintosh)</stEvt:soft
+52::1394::strator CS6 (Macintosh)</xmp:Creato
+33::1405::HasVisibleOverprint>False</xmpTPg:H
+34::1534::         <xmpG:tint>100.000000</xmp
+34::1544::         <xmpG:tint>100.000000</xmp
+34::1554::         <xmpG:tint>100.000000</xmp
+34::1564::         <xmpG:tint>100.000000</xmp
+34::1574::         <xmpG:tint>100.000000</xmp
+34::1584::         <xmpG:tint>100.000000</xmp
+34::1594::         <xmpG:tint>100.000000</xmp
+34::1604::         <xmpG:tint>100.000000</xmp
+34::1614::         <xmpG:tint>100.000000</xmp
+34::1624::         <xmpG:tint>100.000000</xmp
+34::1634::         <xmpG:tint>100.000000</xmp
+34::1644::         <xmpG:tint>100.000000</xmp
+65::1690::strator CS6 (Macintosh)</stEvt:soft
+52::2007::strator CS6 (Macintosh)</xmp:Creato
+33::2018::HasVisibleOverprint>False</xmpTPg:H
+34::2147::         <xmpG:tint>100.000000</xmp
+34::2157::         <xmpG:tint>100.000000</xmp
+34::2167::         <xmpG:tint>100.000000</xmp
+34::2177::         <xmpG:tint>100.000000</xmp
+34::2187::         <xmpG:tint>100.000000</xmp
+34::2197::         <xmpG:tint>100.000000</xmp
+34::2207::         <xmpG:tint>100.000000</xmp
+34::2217::         <xmpG:tint>100.000000</xmp
+34::2227::         <xmpG:tint>100.000000</xmp
+34::2237::         <xmpG:tint>100.000000</xmp
+34::2247::         <xmpG:tint>100.000000</xmp
+34::2257::         <xmpG:tint>100.000000</xmp
+65::2303::strator CS6 (Macintosh)</stEvt:soft
+52::2321::strator CS6 (Macintosh)</xmp:Creato
+33::2332::HasVisibleOverprint>False</xmpTPg:H
+34::2461::         <xmpG:tint>100.000000</xmp
+34::2471::         <xmpG:tint>100.000000</xmp
+34::2481::         <xmpG:tint>100.000000</xmp
+34::2491::         <xmpG:tint>100.000000</xmp
+34::2501::         <xmpG:tint>100.000000</xmp
+34::2511::         <xmpG:tint>100.000000</xmp
+34::2521::         <xmpG:tint>100.000000</xmp
+34::2531::         <xmpG:tint>100.000000</xmp
+34::2541::         <xmpG:tint>100.000000</xmp
+34::2551::         <xmpG:tint>100.000000</xmp
+34::2561::         <xmpG:tint>100.000000</xmp
+34::2571::         <xmpG:tint>100.000000</xmp
+65::2617::strator CS6 (Macintosh)</stEvt:soft
+231::2941::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+56::5291::tor CC 2015 (Macintosh)</xmp:Creato
+69::5320::tor CC 2015 (Macintosh)</stEvt:soft
+39::5329::tartupProfile>Print</illustrator:St
+33::5335::HasVisibleOverprint>False</xmpTPg:H
+56::5916::tor CC 2015 (Macintosh)</xmp:Creato
+69::5945::tor CC 2015 (Macintosh)</stEvt:soft
+39::5954::tartupProfile>Print</illustrator:St
+33::5960::HasVisibleOverprint>False</xmpTPg:H
+56::6540::tor CC 2015 (Macintosh)</xmp:Creato
+69::6569::tor CC 2015 (Macintosh)</stEvt:soft
+39::6578::tartupProfile>Print</illustrator:St
+33::6584::HasVisibleOverprint>False</xmpTPg:H
+56::7164::tor CC 2015 (Macintosh)</xmp:Creato
+69::7193::tor CC 2015 (Macintosh)</stEvt:soft
+39::7202::tartupProfile>Print</illustrator:St
+33::7208::HasVisibleOverprint>False</xmpTPg:H
+56::7788::tor CC 2015 (Macintosh)</xmp:Creato
+69::7817::tor CC 2015 (Macintosh)</stEvt:soft
+39::7826::tartupProfile>Print</illustrator:St
+33::7832::HasVisibleOverprint>False</xmpTPg:H
+56::8412::tor CC 2015 (Macintosh)</xmp:Creato
+69::8441::tor CC 2015 (Macintosh)</stEvt:soft
+39::8450::tartupProfile>Print</illustrator:St
+33::8456::HasVisibleOverprint>False</xmpTPg:H
+56::9036::tor CC 2015 (Macintosh)</xmp:Creato
+69::9065::tor CC 2015 (Macintosh)</stEvt:soft
+39::9074::tartupProfile>Print</illustrator:St
+33::9080::HasVisibleOverprint>False</xmpTPg:H
+56::9660::tor CC 2015 (Macintosh)</xmp:Creato
+69::9689::tor CC 2015 (Macintosh)</stEvt:soft
+39::9698::tartupProfile>Print</illustrator:St
+33::9704::HasVisibleOverprint>False</xmpTPg:H
+56::10284::tor CC 2015 (Macintosh)</xmp:Creato
+69::10313::tor CC 2015 (Macintosh)</stEvt:soft
+39::10322::tartupProfile>Print</illustrator:St
+33::10328::HasVisibleOverprint>False</xmpTPg:H
+56::10908::tor CC 2015 (Macintosh)</xmp:Creato
+69::10937::tor CC 2015 (Macintosh)</stEvt:soft
+39::10946::tartupProfile>Print</illustrator:St
+33::10952::HasVisibleOverprint>False</xmpTPg:H
+56::11533::tor CC 2015 (Macintosh)</xmp:Creato
+69::11562::tor CC 2015 (Macintosh)</stEvt:soft
+39::11571::tartupProfile>Print</illustrator:St
+33::11577::HasVisibleOverprint>False</xmpTPg:H
+56::12157::tor CC 2015 (Macintosh)</xmp:Creato
+69::12186::tor CC 2015 (Macintosh)</stEvt:soft
+39::12195::tartupProfile>Print</illustrator:St
+33::12201::HasVisibleOverprint>False</xmpTPg:H
+51::14078::ustrator CC (Macintosh)</xmp:Creato
+65::14100::strator CS6 (Macintosh)</stEvt:soft
+64::14107::ustrator CC (Macintosh)</stEvt:soft
+39::14116::tartupProfile>Print</illustrator:St
+33::14122::HasVisibleOverprint>False</xmpTPg:H
+51::14701::ustrator CC (Macintosh)</xmp:Creato
+65::14723::strator CS6 (Macintosh)</stEvt:soft
+64::14730::ustrator CC (Macintosh)</stEvt:soft
+39::14739::tartupProfile>Print</illustrator:St
+33::14745::HasVisibleOverprint>False</xmpTPg:H
+51::15499::ustrator CC (Macintosh)</xmp:Creato
+65::15521::strator CS6 (Macintosh)</stEvt:soft
+64::15528::ustrator CC (Macintosh)</stEvt:soft
+39::15537::tartupProfile>Print</illustrator:St
+33::15543::HasVisibleOverprint>False</xmpTPg:H
+266::16488::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1188::strator CS6 (Macintosh)</xmp:Creato
+33::1199::HasVisibleOverprint>False</xmpTPg:H
+34::1328::         <xmpG:tint>100.000000</xmp
+34::1338::         <xmpG:tint>100.000000</xmp
+34::1348::         <xmpG:tint>100.000000</xmp
+34::1358::         <xmpG:tint>100.000000</xmp
+34::1368::         <xmpG:tint>100.000000</xmp
+34::1378::         <xmpG:tint>100.000000</xmp
+34::1388::         <xmpG:tint>100.000000</xmp
+34::1398::         <xmpG:tint>100.000000</xmp
+34::1408::         <xmpG:tint>100.000000</xmp
+34::1418::         <xmpG:tint>100.000000</xmp
+34::1428::         <xmpG:tint>100.000000</xmp
+34::1438::         <xmpG:tint>100.000000</xmp
+65::1484::strator CS6 (Macintosh)</stEvt:soft
+52::1792::strator CS6 (Macintosh)</xmp:Creato
+33::1803::HasVisibleOverprint>False</xmpTPg:H
+34::1932::         <xmpG:tint>100.000000</xmp
+34::1942::         <xmpG:tint>100.000000</xmp
+34::1952::         <xmpG:tint>100.000000</xmp
+34::1962::         <xmpG:tint>100.000000</xmp
+34::1972::         <xmpG:tint>100.000000</xmp
+34::1982::         <xmpG:tint>100.000000</xmp
+34::1992::         <xmpG:tint>100.000000</xmp
+34::2002::         <xmpG:tint>100.000000</xmp
+34::2012::         <xmpG:tint>100.000000</xmp
+34::2022::         <xmpG:tint>100.000000</xmp
+34::2032::         <xmpG:tint>100.000000</xmp
+34::2042::         <xmpG:tint>100.000000</xmp
+65::2088::strator CS6 (Macintosh)</stEvt:soft
+162::2378::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1367::strator CS6 (Macintosh)</xmp:Creato
+33::1378::HasVisibleOverprint>False</xmpTPg:H
+34::1507::         <xmpG:tint>100.000000</xmp
+34::1517::         <xmpG:tint>100.000000</xmp
+34::1527::         <xmpG:tint>100.000000</xmp
+34::1537::         <xmpG:tint>100.000000</xmp
+34::1547::         <xmpG:tint>100.000000</xmp
+34::1557::         <xmpG:tint>100.000000</xmp
+34::1567::         <xmpG:tint>100.000000</xmp
+34::1577::         <xmpG:tint>100.000000</xmp
+34::1587::         <xmpG:tint>100.000000</xmp
+34::1597::         <xmpG:tint>100.000000</xmp
+34::1607::         <xmpG:tint>100.000000</xmp
+34::1617::         <xmpG:tint>100.000000</xmp
+65::1663::strator CS6 (Macintosh)</stEvt:soft
+52::1900::strator CS6 (Macintosh)</xmp:Creato
+33::1911::HasVisibleOverprint>False</xmpTPg:H
+34::2040::         <xmpG:tint>100.000000</xmp
+34::2050::         <xmpG:tint>100.000000</xmp
+34::2060::         <xmpG:tint>100.000000</xmp
+34::2070::         <xmpG:tint>100.000000</xmp
+34::2080::         <xmpG:tint>100.000000</xmp
+34::2090::         <xmpG:tint>100.000000</xmp
+34::2100::         <xmpG:tint>100.000000</xmp
+34::2110::         <xmpG:tint>100.000000</xmp
+34::2120::         <xmpG:tint>100.000000</xmp
+34::2130::         <xmpG:tint>100.000000</xmp
+34::2140::         <xmpG:tint>100.000000</xmp
+34::2150::         <xmpG:tint>100.000000</xmp
+65::2196::strator CS6 (Macintosh)</stEvt:soft
+433::2585::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+313::473::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+52::1078::strator CS6 (Macintosh)</xmp:Creato
+33::1089::HasVisibleOverprint>False</xmpTPg:H
+34::1218::         <xmpG:tint>100.000000</xmp
+34::1228::         <xmpG:tint>100.000000</xmp
+34::1238::         <xmpG:tint>100.000000</xmp
+34::1248::         <xmpG:tint>100.000000</xmp
+34::1258::         <xmpG:tint>100.000000</xmp
+34::1268::         <xmpG:tint>100.000000</xmp
+34::1278::         <xmpG:tint>100.000000</xmp
+34::1288::         <xmpG:tint>100.000000</xmp
+34::1298::         <xmpG:tint>100.000000</xmp
+34::1308::         <xmpG:tint>100.000000</xmp
+34::1318::         <xmpG:tint>100.000000</xmp
+34::1328::         <xmpG:tint>100.000000</xmp
+65::1374::strator CS6 (Macintosh)</stEvt:soft
+52::1645::strator CS6 (Macintosh)</xmp:Creato
+33::1656::HasVisibleOverprint>False</xmpTPg:H
+34::1785::         <xmpG:tint>100.000000</xmp
+34::1795::         <xmpG:tint>100.000000</xmp
+34::1805::         <xmpG:tint>100.000000</xmp
+34::1815::         <xmpG:tint>100.000000</xmp
+34::1825::         <xmpG:tint>100.000000</xmp
+34::1835::         <xmpG:tint>100.000000</xmp
+34::1845::         <xmpG:tint>100.000000</xmp
+34::1855::         <xmpG:tint>100.000000</xmp
+34::1865::         <xmpG:tint>100.000000</xmp
+34::1875::         <xmpG:tint>100.000000</xmp
+34::1885::         <xmpG:tint>100.000000</xmp
+34::1895::         <xmpG:tint>100.000000</xmp
+65::1941::strator CS6 (Macintosh)</stEvt:soft
+248::2453::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+33::552::HasVisibleOverprint>False</xmpTPg:H
+46::6750::g="x-default">Print</rdf:li>
+52::6759::strator CS6 (Macintosh)</xmp:Creato
+65::6781::strator CS6 (Macintosh)</stEvt:soft
+39::6790::tartupProfile>Print</illustrator:St
+33::6797::HasVisibleOverprint>True</xmpTPg:Ha
+46::7392::g="x-default">Print</rdf:li>
+52::7401::strator CS6 (Macintosh)</xmp:Creato
+65::7423::strator CS6 (Macintosh)</stEvt:soft
+39::7432::tartupProfile>Print</illustrator:St
+33::7439::HasVisibleOverprint>True</xmpTPg:Ha
+46::8034::g="x-default">Print</rdf:li>
+52::8043::strator CS6 (Macintosh)</xmp:Creato
+65::8065::strator CS6 (Macintosh)</stEvt:soft
+39::8074::tartupProfile>Print</illustrator:St
+33::8081::HasVisibleOverprint>True</xmpTPg:Ha
+46::8676::g="x-default">Print</rdf:li>
+52::8685::strator CS6 (Macintosh)</xmp:Creato
+65::8707::strator CS6 (Macintosh)</stEvt:soft
+39::8716::tartupProfile>Print</illustrator:St
+33::8723::HasVisibleOverprint>True</xmpTPg:Ha
+412::9418::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign CS6 (Macintosh)</stEvt:soft
+49::37::nDesign CS6 (Macintosh)</xmp:Creato
+46::248::g="x-default">Print</rdf:li>
+39::272::tartupProfile>Print</illustrator:St
+33::280::HasVisibleOverprint>False</xmpTPg:H
+36::625::mpG:groupName>Print Color Group</xm
+56::2625::tor CC 2015 (Macintosh)</xmp:Creato
+69::2649::tor CC 2015 (Macintosh)</stEvt:soft
+39::2658::tartupProfile>Print</illustrator:St
+33::2666::HasVisibleOverprint>False</xmpTPg:H
+36::3011::mpG:groupName>Print Color Group</xm
+397::3182::Design CS6 \(Macintosh\))/ModDate(D
+62::25::nDesign 

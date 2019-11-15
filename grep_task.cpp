@@ -1,9 +1,13 @@
 #include "grep_task.h"
 
+#define FILE_OPEN_FAILURE_ENABLED
+#define FGREP_BATCH_SIZE 256
+#define MAX_LINE_LEN_ALLOWED 32
+
 grep_task::grep_task(QString path, QString substr, thread_pool& tp)
     : task(tp)
-    , path_(path)
-    , substr_(substr)
+    , path_(std::move(path))
+    , substr_(std::move(substr))
     , total_(0)
     , found_all_(false)
     , cancel_(false)
@@ -28,7 +32,7 @@ void grep_task::iterate_over_directory_(F&& f) {
     }
 }
 
-void grep_task::enqueue_(std::shared_ptr<task> tsk) {
+void grep_task::enqueue_(std::shared_ptr<task> const& tsk) {
     tp_.enqueue(tsk);
 }
 
@@ -63,11 +67,6 @@ QString grep_task::substring() const noexcept {
     return substr_;
 }
 
-void grep_task::push_result(QString line) {
-    std::unique_lock<std::mutex> lg(m_);
-    res_.push_back(line);
-}
-
 int grep_task::total_files() const noexcept {
     return total_;
 }
@@ -78,6 +77,10 @@ int grep_task::completed_files() const noexcept {
 
 bool grep_task::found_all() const noexcept {
     return found_all_;
+}
+
+bool grep_task::finished() const noexcept {
+    return found_all() && completed_files() == total_files();
 }
 
 void grep_task::prepare() {
@@ -104,51 +107,97 @@ void grep_task::clear_result() {
 
 file_grep_subtask::file_grep_subtask(QString path, grep_task* parent, thread_pool& tp)
     : task(tp)
-    , path_(path)
+    , path_(std::move(path))
     , parent_(parent)
 {}
+
+void file_grep_subtask::patch_result() {
+    size_t i = 0;
+    while (i < result_.size()) {
+        size_t sz = std::min(result_.size() - i, (size_t)FGREP_BATCH_SIZE);
+        {
+            std::unique_lock<std::mutex> lg(parent_->m_);
+            parent_->res_.reserve(parent_->res_.size() + sz);
+            parent_->res_.insert(parent_->res_.end(),
+                                    result_.begin() + i,
+                                    result_.begin() + i + sz);
+        }
+        i += sz;
+    }
+    result_.clear();
+}
+
+QString file_grep_subtask::construct_result(QString const& line, int index, int lineid) {
+    return path_ + "::" + QString::number(index) + "::" + QString::number(lineid) + "::" + line + "\n";
+//    return QString::number(index) + "::" + QString::number(lineid) + "::<pre>" + line + "</pre><br>";
+}
+
+void file_grep_subtask::add_result(QString line, int index, int lineid) {
+    QString res;
+    if (line.size() < MAX_LINE_LEN_ALLOWED) {
+        if (parent_->substr_.size()) {
+//            line.insert(index + parent_->substr_.size(), QString("</font><pre>"));
+//            line.insert(index, QString("</pre><font color=\"Red\">"));
+        }
+        line = line.left(line.size() - 1);
+        res = construct_result(line, index, lineid);
+    } else if (parent_->substr_.size() > MAX_LINE_LEN_ALLOWED) {
+//        res = construct_result(QString("</pre><font color=\"Red\">")
+//                             + line.mid(index, MAX_LINE_LEN_ALLOWED)
+//                             + QString("</font><pre>"), index, lineid);
+
+        res = construct_result(line.mid(index, MAX_LINE_LEN_ALLOWED), index, lineid);
+    } else {
+        int def_ind = index;
+        QString pstr;
+        QStringRef push(&line);
+        if (index > MAX_LINE_LEN_ALLOWED / 2) {
+            push = push.right(push.size() - index + MAX_LINE_LEN_ALLOWED / 2);
+            index = MAX_LINE_LEN_ALLOWED / 2;
+        }
+        if (push.size() - index - parent_->substr_.size() > MAX_LINE_LEN_ALLOWED / 2) {
+            assert(index <= MAX_LINE_LEN_ALLOWED / 2);
+            push = push.left(index + parent_->substr_.size() + MAX_LINE_LEN_ALLOWED / 2);
+            pstr = push.toString();
+        } else {
+            pstr = push.toString();
+        }
+//        pstr = push.toString();
+        if (parent_->substr_.size()) {
+//            pstr.insert(index + parent_->substr_.size(), QString("</font><pre>"));
+//            pstr.insert(index, QString("</pre><font color=\"Red\">"));
+        }
+        res = construct_result(pstr, def_ind, lineid);
+    }
+    result_.push_back(res);
+}
 
 void file_grep_subtask::run() {
     QFile file(path_);
     if (file.exists() && file.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream in(&file);
+        int ln = 1;
         while (!in.atEnd()) {
             if (parent_->is_cancelled()) {
                 break;
             }
-
             QString line = in.readLine();
-
             if (in.status() == QTextStream::Status::ReadCorruptData) {
                 break;
             }
-
             int index = line.indexOf(parent_->substr_);
-
             if (index != -1) {
-                QString push_str;
-                if (line.size() > 100) {
-                    if (index > 50) {
-                        QStringRef lf(&line, index - 50, 50);
-                        QStringRef rt(&line, index + parent_->substr_.size(),
-                                      std::min(50, line.size() - index - parent_->substr_.size()));
-                        push_str = "..." + lf
-                                 + QString("</font><br>") + parent_->substr_
-                                 + QString("<font color=\"Red\">") + rt + "...";
-                    } else {
-
-                    }
-                } else {
-                    line.insert(index + parent_->substr_.size(), QString("</font><br>"));
-                    line.insert(index, QString("<font color=\"Red\">"));
-                    push_str = std::move(line);
-                }
-                parent_->push_result(path_ + ":" + push_str);
+                add_result(line, index, ln);
             }
+            ++ln;
         }
         file.close();
     } else {
-        parent_->push_result(path_ + ":" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
+#ifdef FILE_OPEN_FAILURE_ENABLED
+        result_.push_back(path_ + "::" + "FAILED TO OPEN FILE\n");
+//        result_.push_back(path_ + "::" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
+#endif
     }
+    patch_result();
     ++parent_->complete_;
 }
