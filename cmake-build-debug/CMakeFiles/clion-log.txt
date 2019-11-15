@@ -1,0 +1,4 @@
+/home/dzhiblavi/Soft/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/dzhiblavi/Documents/prog/cpp/code/qtgrep
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dzhiblavi/Documents/prog/cpp/code/qtgrep/cmake-build-debug

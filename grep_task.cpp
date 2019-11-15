@@ -21,7 +21,6 @@ void grep_task::iterate_over_directory_(F&& f) {
 
     while (it.hasNext()) {
         if (is_cancelled()) {
-            std::cerr << "I AM CANCELLED" << std::endl;
             return;
         }
         it.next();
@@ -37,18 +36,15 @@ void grep_task::run() {
     QString path = path_;
     QDir dir(path_);
     if (dir.exists()) {
-        std::cerr << "STARTED ITERATING" << std::endl;
         iterate_over_directory_([this](QString const& s) {
             enqueue_(std::make_shared<file_grep_subtask>(s, this, tp_));
             ++total_;
         });
-        std::cerr << "FINISHED ITERATING" << std::endl;
     } else {
         enqueue_(std::make_shared<file_grep_subtask>(path_, this, tp_));
         ++total_;
     }
     found_all_ = true;
-    std::cerr << "EXITING GREP RUN" << std::endl;
 }
 
 void grep_task::cancel() {
@@ -98,7 +94,7 @@ std::vector<QString> grep_task::get_result() const {
 
 std::vector<QString> grep_task::get_result(size_t count) const {
     std::unique_lock<std::mutex> lg(m_);
-    return std::vector(res_.begin(), count > res_.size() ? res_.end() : res_.begin() + count);
+    return std::vector<QString>(res_.begin(), count > res_.size() ? res_.end() : res_.begin() + count);
 }
 
 void grep_task::clear_result() {
@@ -112,37 +108,47 @@ file_grep_subtask::file_grep_subtask(QString path, grep_task* parent, thread_poo
     , parent_(parent)
 {}
 
-//bool is_binary(QByteArray const& ba) {
-//    for (auto const& c : ba) {
-//        if (!QChar(c).isPrint()) {
-//            return true;
-//        }
-//    }
-//    return false;
-//}
-
 void file_grep_subtask::run() {
     QFile file(path_);
     if (file.exists() && file.open(QFile::ReadOnly | QFile::Text)) {
-        while (!file.atEnd()) {
+        QTextStream in(&file);
+        while (!in.atEnd()) {
             if (parent_->is_cancelled()) {
-                std::cerr << "FILE GREP CANCELLED" << std::endl;
                 break;
             }
 
-            QByteArray line = file.readLine();
+            QString line = in.readLine();
+
+            if (in.status() == QTextStream::Status::ReadCorruptData) {
+                break;
+            }
+
             int index = line.indexOf(parent_->substr_);
 
-//            if (index != -1) {
-//                line.insert(index + parent_->substr_.size(), QString("</font><br>"));
-//                line.insert(index, QString("<font color=\"Red\">"));
-//                parent_->push_result(path_ + ":" + line);
-//            }
+            if (index != -1) {
+                QString push_str;
+                if (line.size() > 100) {
+                    if (index > 50) {
+                        QStringRef lf(&line, index - 50, 50);
+                        QStringRef rt(&line, index + parent_->substr_.size(),
+                                      std::min(50, line.size() - index - parent_->substr_.size()));
+                        push_str = "..." + lf
+                                 + QString("</font><br>") + parent_->substr_
+                                 + QString("<font color=\"Red\">") + rt + "...";
+                    } else {
+
+                    }
+                } else {
+                    line.insert(index + parent_->substr_.size(), QString("</font><br>"));
+                    line.insert(index, QString("<font color=\"Red\">"));
+                    push_str = std::move(line);
+                }
+                parent_->push_result(path_ + ":" + push_str);
+            }
         }
         file.close();
     } else {
         parent_->push_result(path_ + ":" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
     }
     ++parent_->complete_;
-    std::cerr << "TOTALLY EXITED RUN" << std::endl;
 }

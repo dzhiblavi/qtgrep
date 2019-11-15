@@ -49,10 +49,7 @@ main_window::main_window(QWidget *parent)
 
     connect(ui->cancelButton, &QPushButton::clicked, this, [this] {
         if (gtask) {
-            std::cerr << "CANCELLING TASK" << std::endl;
             gtask->cancel();
-            gtask.reset();
-            std::cerr << "CANCELLED TASK" << std::endl;
         }
     });
 

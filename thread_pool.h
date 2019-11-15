@@ -6,15 +6,13 @@
 #include <set>
 #include <queue>
 #include <iostream>
-
-#include <QObject>
+#include <condition_variable>
+#include <list>
+#include <atomic>
 
 class task;
 
 class thread_pool {
-private:
-//    Q_OBJECT
-
 public:
     thread_pool(size_t n_threads = 8);
     ~thread_pool();

@@ -1,0 +1,3 @@
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/rebuild_cache.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/test_threadpool.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/edit_cache.dir
