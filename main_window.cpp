@@ -9,6 +9,10 @@ main_window::main_window(QWidget *parent)
     , tpool(8) {
     ui->setupUi(this);
 
+    dynamic_cast<QGridLayout*>(ui->centralwidget->layout())->setColumnStretch(0, 0);
+    dynamic_cast<QGridLayout*>(ui->centralwidget->layout())->setColumnStretch(1, 1);
+    dynamic_cast<QGridLayout*>(ui->centralwidget->layout())->setRowStretch(3, 0);
+
     QCommonStyle style;
     ui->actionScanDirectory->setIcon(style.standardIcon(QCommonStyle::SP_DialogOpenButton));
     update_view();
