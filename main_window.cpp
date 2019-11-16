@@ -118,6 +118,11 @@ void main_window::update_ui() {
 
         ui->resultTextEdit->insertPlainText(rappended);
         ui->logTextEdit->insertPlainText(fappended);
+        if (gtask->critical_errors()) {
+            ui->logTextEdit->insertPlainText("CRITICAL : "
+                                           + QString::number(gtask->critical_errors()) + "\n");
+            gtask->reset_critical();
+        }
     }
 
     switch (status) {

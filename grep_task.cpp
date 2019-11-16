@@ -136,6 +136,10 @@ int grep_task::critical_errors() const noexcept {
     return critical_.load();
 }
 
+void grep_task::reset_critical() noexcept {
+    critical_.store(0);
+}
+
 void grep_task::clear_failure_logs() noexcept {
     std::unique_lock<std::mutex> lg(fm_);
     fail_.clear();
@@ -173,7 +177,9 @@ void file_grep_subtask::add_result(QString line, int index, int lineid) {
 //            line.insert(index + parent_->substr_.size(), QString("</font><pre>"));
 //            line.insert(index, QString("</pre><font color=\"Red\">"));
         }
-        line = line.left(line.size() - 1);
+        if (line.back() == '\n') {
+            line = line.left(line.size() - 1);
+        }
         res = construct_result(line, index, lineid);
     } else if (parent_->substr_.size() > MAX_LINE_LEN_ALLOWED) {
 //        res = construct_result(QString("</pre><font color=\"Red\">")
@@ -237,10 +243,10 @@ void file_grep_subtask::run() noexcept {
             }
             file.close();
         } else {
-    #ifdef FILE_OPEN_FAILURE_ENABLED
+#ifdef FILE_OPEN_FAILURE_ENABLED
             throw std::runtime_error("FAILED TO OPEN FILE\n");
     //        result_.push_back(path_ + "::" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
-    #endif
+#endif
         }
     } catch (std::runtime_error const& e) {
         try_add_fail(e.what());

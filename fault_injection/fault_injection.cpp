@@ -91,7 +91,7 @@ void fault_injection_point() {
     }
 }
 
-void faulty_run(std::function<void ()> const& f) {
+void faulty_run(std::function<void ()> const& f, std::function<void()> const& errcall) {
 #if 0
     f();
 #else
@@ -103,6 +103,9 @@ void faulty_run(std::function<void ()> const& f) {
             f();
         } catch (...) {
             fault_injection_disable dg;
+            if (errcall) {
+                errcall();
+            }
             dump_state();
             ctx.skip_ranges.resize(ctx.error_index);
             ++ctx.skip_ranges.back();

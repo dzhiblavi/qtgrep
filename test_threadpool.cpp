@@ -79,7 +79,7 @@ struct test_task : task {
     }
 };
 
-TEST(correctness, simple_test) {
+TEST(correctness, super_simple) {
     faulty_run([]
     {
         clear();
@@ -102,6 +102,33 @@ TEST(correctness, simple_test) {
         EXPECT_EQ(tp.queue_size(), 0);
         EXPECT_EQ(cancelled.size(), 3);
     });
+}
+
+TEST(correctness, simple) {
+//    thread_pool tp(3);
+//    std::vector<std::shared_ptr<test_task>> tasks;
+//    for (size_t i = 0; i < 10; ++i) {
+//        tasks.emplace_back(std::make_shared<test_task>(i, tp));
+//    }
+//
+//    faulty_run([&]
+//    {
+//        clear();
+//
+//        tp.abort();
+//        WAIT;
+//        EXPECT_EQ(executing.size(), 0);
+//        EXPECT_EQ(tp.queue_size(), 0);
+//        EXPECT_EQ(cancelled.size(), 3);
+//
+//        for (size_t i = 0; i < 10; ++i) {
+//            tp.enqueue(tasks[i]);
+//        }
+//
+//        WAIT;
+//        EXPECT_EQ(executing.size(), 3);
+//        EXPECT_EQ(tp.queue_size(), 10 - 3);
+//    });
 }
 
 TEST(correctness, cancel_and_reuse) {
@@ -190,7 +217,7 @@ TEST(grep_background, file) {
         thread_pool tp(2);
         auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
                                                  "/prog/cpp/code/qtgrep"
-                                                 "/qt_grep_ui/test_dir/", "abacaba", tp);
+                                                 "/test/", "abacaba", tp);
         tp.enqueue(gtask);
         WAIT;
         auto v = gtask->get_result();
@@ -213,17 +240,18 @@ TEST(grep_background, large_dir_long_lines) {
         for (auto const& x : v) {
             ofile << x.toStdString();
         }
-        if (cnt > 1000) {
+        if (cnt++ > 3) {
             break;
         }
     }
+    gtask->cancel();
 }
 
 TEST(grep_background, empty_substr) {
     thread_pool tp(2);
     auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
                                              "/prog/cpp/code/qtgrep"
-                                             "/qt_grep_ui/test_dir/", "", tp);
+                                             "/test/", "", tp);
     tp.enqueue(gtask);
     WAIT;
     auto v = gtask->get_result();
@@ -231,5 +259,4 @@ TEST(grep_background, empty_substr) {
         std::cout << x.toStdString();
     }
 }
-
 

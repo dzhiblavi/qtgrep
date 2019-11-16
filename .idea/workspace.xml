@@ -15,17 +15,15 @@
     <list default="true" id="6231cec3-61b7-4656-99a6-b593c06a7e96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/fault_injection/fault_injection.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/fault_injection/fault_injection.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/grep_task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/grep_task.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/task.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/test_threadpool.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/test_threadpool.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/thread_pool.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/test_threadpool.dir/thread_pool.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/root_dir.test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/root_dir.test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test_threadpool" beforeDir="false" afterPath="$PROJECT_DIR$/build/test_threadpool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fault_injection/fault_injection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/fault_injection/fault_injection.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fault_injection/fault_injection.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/fault_injection/fault_injection.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grep_task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/grep_task.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grep_task.h" beforeDir="false" afterPath="$PROJECT_DIR$/grep_task.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt_grep_ui.pro.user" beforeDir="false" afterPath="$PROJECT_DIR$/qt_grep_ui.pro.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/task.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task.h" beforeDir="false" afterPath="$PROJECT_DIR$/task.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_window.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_threadpool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test_threadpool.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -91,6 +89,9 @@
       <item itemvalue="CMake Application.test_threadpool_autogen" />
     </list>
   </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,7 +105,7 @@
       <workItem from="1573822536163" duration="202000" />
       <workItem from="1573823216917" duration="14755000" />
       <workItem from="1573846506386" duration="4333000" />
-      <workItem from="1573882694483" duration="1450000" />
+      <workItem from="1573882694483" duration="4742000" />
     </task>
     <servers />
   </component>

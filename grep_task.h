@@ -45,7 +45,9 @@ public:
     std::vector<QString> get_failure_logs() const;
     std::vector<QString> get_failure_logs(size_t count) const;
     void clear_failure_logs() noexcept;
+
     int critical_errors() const noexcept;
+    void reset_critical() noexcept;
 
     void cancel();
     bool is_cancelled() const noexcept;
