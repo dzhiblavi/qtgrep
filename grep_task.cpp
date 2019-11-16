@@ -20,7 +20,7 @@ grep_task::grep_task(QString path, QString substr,
     , self_pointer(nullptr)
 {}
 
-std::shared_ptr<grep_task> grep_task::create(QString path, QString substr, thread_pool& tp) noexcept {
+std::shared_ptr<grep_task> grep_task::create(QString path, QString substr, thread_pool& tp) {
     auto p = new grep_task(path, substr, tp);
     std::shared_ptr<grep_task> ptr(nullptr);
     try {

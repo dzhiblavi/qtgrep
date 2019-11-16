@@ -40,8 +40,7 @@ class grep_task : public task {
     void set_self_ptr_(std::shared_ptr<grep_task> const& ptr);
 
 public:
-    static std::shared_ptr<grep_task> create(QString path, QString substr,
-                                      thread_pool& tp) noexcept;
+    static std::shared_ptr<grep_task> create(QString path, QString substr, thread_pool& tp);
 
     std::vector<QString> get_result() const;
     std::vector<QString> get_result(size_t count) const;

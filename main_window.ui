@@ -96,22 +96,6 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="5" alignment="Qt::AlignRight">
-     <widget class="QTextBrowser" name="logTextBrowser">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>256</width>
-        <height>313</height>
-       </size>
-      </property>
-     </widget>
-    </item>
     <item row="10" column="0" alignment="Qt::AlignLeft">
      <widget class="QLabel" name="statusLabel">
       <property name="text">
@@ -176,6 +160,22 @@
       </property>
      </widget>
     </item>
+    <item row="7" column="5">
+     <widget class="QTextBrowser" name="logTextBrowser">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>256</width>
+        <height>313</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
    <zorder>label_2</zorder>
    <zorder>searchButton</zorder>
@@ -194,8 +194,8 @@
    <zorder>searchlineEdit</zorder>
    <zorder>label_3</zorder>
    <zorder>resultTextBrowser</zorder>
-   <zorder>logTextBrowser</zorder>
    <zorder>searchLabel</zorder>
+   <zorder>logTextBrowser</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
