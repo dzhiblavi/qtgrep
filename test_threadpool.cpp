@@ -51,11 +51,11 @@ struct test_task : task {
 #endif
     }
 
-    void prepare() override {
+    void prepare() noexcept override {
         cancel_.store(false);
     }
 
-    void run() override {
+    void run() noexcept override {
         {
             fault_injection_disable fi;
             std::unique_lock<std::mutex> lg(m);
@@ -169,29 +169,35 @@ TEST(correctness, load_100K) {
 }
 
 TEST(grep_background, empty_dir) {
-    thread_pool tp(2);
-    auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
-                                             "/prog/cpp/code/qtgrep"
-                                             "/qt_grep_ui/test_dir/empty_dir", "abacaba", tp);
-    tp.enqueue(gtask);
-    WAIT;
-    auto v = gtask->get_result();
-    for (auto const& x : v) {
-        std::cout << x.toStdString();
-    }
+    faulty_run([]
+    {
+        thread_pool tp(2);
+        auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
+                                                 "/prog/cpp/code/qtgrep"
+                                                 "/qt_grep_ui/test_dir/empty_dir", "abacaba", tp);
+        tp.enqueue(gtask);
+        WAIT;
+        auto v = gtask->get_result();
+        for (auto const& x : v) {
+            std::cout << x.toStdString();
+        }
+    });
 }
 
 TEST(grep_background, file) {
-    thread_pool tp(2);
-    auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
-                                             "/prog/cpp/code/qtgrep"
-                                             "/qt_grep_ui/test_dir/", "abacaba", tp);
-    tp.enqueue(gtask);
-    WAIT;
-    auto v = gtask->get_result();
-    for (auto const& x : v) {
-        std::cout << x.toStdString();
-    }
+    faulty_run([]
+    {
+        thread_pool tp(2);
+        auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
+                                                 "/prog/cpp/code/qtgrep"
+                                                 "/qt_grep_ui/test_dir/", "abacaba", tp);
+        tp.enqueue(gtask);
+        WAIT;
+        auto v = gtask->get_result();
+        for (auto const& x : v) {
+            std::cout << x.toStdString();
+        }
+    });
 }
 
 TEST(grep_background, large_dir_long_lines) {
@@ -214,7 +220,16 @@ TEST(grep_background, large_dir_long_lines) {
 }
 
 TEST(grep_background, empty_substr) {
-
+    thread_pool tp(2);
+    auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
+                                             "/prog/cpp/code/qtgrep"
+                                             "/qt_grep_ui/test_dir/", "", tp);
+    tp.enqueue(gtask);
+    WAIT;
+    auto v = gtask->get_result();
+    for (auto const& x : v) {
+        std::cout << x.toStdString();
+    }
 }
 
 

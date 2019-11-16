@@ -15,8 +15,8 @@ public:
     task(thread_pool& tp);
     virtual ~task() = default;
 
-    virtual void run() = 0;
-    virtual void prepare();
+    virtual void run() noexcept = 0;
+    virtual void prepare() noexcept;
 };
 
 #endif // TASK_H

@@ -4,7 +4,7 @@
 #define FGREP_BATCH_SIZE 256
 #define MAX_LINE_LEN_ALLOWED 32
 
-grep_task::grep_task(QString path, QString substr, thread_pool& tp)
+grep_task::grep_task(QString path, QString substr, thread_pool& tp) noexcept
     : task(tp)
     , path_(std::move(path))
     , substr_(std::move(substr))
@@ -12,6 +12,7 @@ grep_task::grep_task(QString path, QString substr, thread_pool& tp)
     , found_all_(false)
     , cancel_(false)
     , complete_(0)
+    , critical_(0)
 {}
 
 template <typename F>
@@ -36,18 +37,32 @@ void grep_task::enqueue_(std::shared_ptr<task> const& tsk) {
     tp_.enqueue(tsk);
 }
 
-void grep_task::run() {
-    QString path = path_;
-    QDir dir(path_);
-    if (dir.exists()) {
-        iterate_over_directory_([this](QString const& s) {
-            enqueue_(std::make_shared<file_grep_subtask>(s, this, tp_));
+void grep_task::run() noexcept {
+    try {
+        QString path = path_;
+        QDir dir(path_);
+        if (dir.exists()) {
+            iterate_over_directory_([this](QString const& s) {
+                enqueue_(std::make_shared<file_grep_subtask>(s, this, tp_));
+                ++total_;
+            });
+        } else {
+            // assume 'path' is filepath
+            enqueue_(std::make_shared<file_grep_subtask>(path_, this, tp_));
             ++total_;
-        });
-    } else {
-        enqueue_(std::make_shared<file_grep_subtask>(path_, this, tp_));
-        ++total_;
+        }
+    } catch (...) {
+        std::unique_lock<std::mutex> lg(fm_);
+        try {
+            fail_.emplace_back("AN UNKNOWN ERROR OCCURED\n");
+        } catch (...) {
+            ++critical_;
+            // pass
+        }
+
+        // pass
     }
+
     found_all_ = true;
 }
 
@@ -83,48 +98,67 @@ bool grep_task::finished() const noexcept {
     return found_all() && completed_files() == total_files();
 }
 
-void grep_task::prepare() {
+void grep_task::prepare() noexcept {
     cancel_.store(false);
     total_ = complete_ = 0;
     found_all_ = false;
-    res_.clear();
+    critical_.store(0);
+    result_.clear();
+    fail_.clear();
 }
 
 std::vector<QString> grep_task::get_result() const {
-    std::unique_lock<std::mutex> lg(m_);
-    return res_;
+    std::unique_lock<std::mutex> lg(rm_);
+    return result_;
 }
 
 std::vector<QString> grep_task::get_result(size_t count) const {
-    std::unique_lock<std::mutex> lg(m_);
-    return std::vector<QString>(res_.begin(), count > res_.size() ? res_.end() : res_.begin() + count);
+    std::unique_lock<std::mutex> lg(rm_);
+    return std::vector<QString>(result_.begin(), count > result_.size() ? result_.end() : result_.begin() + (long)count);
 }
 
-void grep_task::clear_result() {
-    std::unique_lock<std::mutex> lg(m_);
-    res_.clear();
+void grep_task::clear_result() noexcept {
+    std::unique_lock<std::mutex> lg(rm_);
+    result_.clear();
 }
 
-file_grep_subtask::file_grep_subtask(QString path, grep_task* parent, thread_pool& tp)
+std::vector<QString> grep_task::get_failure_logs() const {
+    std::unique_lock<std::mutex> lg(fm_);
+    return fail_;
+}
+
+std::vector<QString> grep_task::get_failure_logs(size_t count) const {
+    std::unique_lock<std::mutex> lg(fm_);
+    return std::vector<QString>(fail_.begin(), count > fail_.size() ? fail_.end() : fail_.begin() + (long)count);
+}
+
+int grep_task::critical_errors() const noexcept {
+    return critical_.load();
+}
+
+void grep_task::clear_failure_logs() noexcept {
+    std::unique_lock<std::mutex> lg(fm_);
+    fail_.clear();
+}
+
+file_grep_subtask::file_grep_subtask(QString path, grep_task* parent, thread_pool& tp) noexcept
     : task(tp)
     , path_(std::move(path))
     , parent_(parent)
 {}
 
-void file_grep_subtask::patch_result() {
-    size_t i = 0;
-    while (i < result_.size()) {
-        size_t sz = std::min(result_.size() - i, (size_t)FGREP_BATCH_SIZE);
+void file_grep_subtask::patch(std::vector<QString>& src, std::vector<QString>& dst, std::mutex& m) {
+    auto it = src.begin();
+    while (it < src.end()) {
+        size_t sz = (size_t)std::min(src.end() - it, (long)FGREP_BATCH_SIZE);
         {
-            std::unique_lock<std::mutex> lg(parent_->m_);
-            parent_->res_.reserve(parent_->res_.size() + sz);
-            parent_->res_.insert(parent_->res_.end(),
-                                    result_.begin() + i,
-                                    result_.begin() + i + sz);
+            std::unique_lock<std::mutex> lg(m);
+            dst.reserve(dst.size() + sz);
+            dst.insert(dst.end(), it, it + (long)sz);
         }
-        i += sz;
+        it += (long)sz;
     }
-    result_.clear();
+    src.clear();
 }
 
 QString file_grep_subtask::construct_result(QString const& line, int index, int lineid) {
@@ -172,32 +206,64 @@ void file_grep_subtask::add_result(QString line, int index, int lineid) {
     result_.push_back(res);
 }
 
-void file_grep_subtask::run() {
-    QFile file(path_);
-    if (file.exists() && file.open(QFile::ReadOnly | QFile::Text)) {
-        QTextStream in(&file);
-        int ln = 1;
-        while (!in.atEnd()) {
-            if (parent_->is_cancelled()) {
-                break;
-            }
-            QString line = in.readLine();
-            if (in.status() == QTextStream::Status::ReadCorruptData) {
-                break;
-            }
-            int index = line.indexOf(parent_->substr_);
-            if (index != -1) {
-                add_result(line, index, ln);
-            }
-            ++ln;
-        }
-        file.close();
-    } else {
-#ifdef FILE_OPEN_FAILURE_ENABLED
-        result_.push_back(path_ + "::" + "FAILED TO OPEN FILE\n");
-//        result_.push_back(path_ + "::" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
-#endif
+void file_grep_subtask::try_add_fail(QString const& str) noexcept {
+    try {
+        fail_.push_back(str);
+    } catch (...) {
+        ++parent_->critical_;
+        // pass
     }
-    patch_result();
+}
+
+void file_grep_subtask::run() noexcept {
+    try {
+        QFile file(path_);
+        if (file.exists() && file.open(QFile::ReadOnly | QFile::Text)) {
+            QTextStream in(&file);
+            int ln = 1;
+            while (!in.atEnd()) {
+                if (parent_->is_cancelled()) {
+                    break;
+                }
+                QString line = in.readLine();
+                if (in.status() == QTextStream::Status::ReadCorruptData) {
+                    break;
+                }
+                int index = line.indexOf(parent_->substr_);
+                if (index != -1) {
+                    add_result(line, index, ln);
+                }
+                ++ln;
+            }
+            file.close();
+        } else {
+    #ifdef FILE_OPEN_FAILURE_ENABLED
+            throw std::runtime_error("FAILED TO OPEN FILE\n");
+    //        result_.push_back(path_ + "::" + "<font color=\"Blue\">FAILED TO OPEN FILE</font><br>");
+    #endif
+        }
+    } catch (std::runtime_error const& e) {
+        try_add_fail(e.what());
+        // pass
+    } catch (...) {
+        try_add_fail("AN UNKNOWN ERROR OCCURED\n");
+    }
+
+    try {
+        patch(result_, parent_->result_, parent_->rm_);
+    } catch (...) {
+        try_add_fail("FAILED TO PUSH RESULTS\n");
+        // pass
+    }
+    try {
+        patch(fail_, parent_->fail_, parent_->fm_);
+    } catch (...) {
+        ++parent_->critical_;
+        // pass (
+    }
     ++parent_->complete_;
+}
+
+void file_grep_subtask::prepare() noexcept {
+    result_.clear();
 }

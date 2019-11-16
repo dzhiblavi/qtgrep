@@ -4,4 +4,4 @@ task::task(thread_pool& tp)
     : tp_(tp)
 {}
 
-void task::prepare() {}
+void task::prepare() noexcept {}

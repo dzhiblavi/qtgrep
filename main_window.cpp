@@ -83,6 +83,8 @@ void main_window::update_ui() {
     } else {
         auto res = gtask->get_result(101);
         gtask->clear_result();
+        auto fail = gtask->get_failure_logs(101);
+        gtask->clear_failure_logs();
 
         ui->poolLoadN->display((int)tpool.queue_size());
         if (gtask->found_all()) {
@@ -98,14 +100,24 @@ void main_window::update_ui() {
             return;
         }
 
-        QString appended;
+        QString rappended;
         for (size_t i = 0; i < std::min((size_t)100, res.size()); ++i) {
-            appended += res[i];
+            rappended += res[i];
         }
         if (res.size() > 100) {
-            appended += "...";
+            rappended += "...";
         }
-        ui->resultTextEdit->insertPlainText(appended);
+
+        QString fappended;
+        for (size_t i = 0; i < std::min((size_t)100, fail.size()); ++i) {
+            fappended += fail[i];
+        }
+        if (fail.size() > 100) {
+            fappended += "...";
+        }
+
+        ui->resultTextEdit->insertPlainText(rappended);
+        ui->logTextEdit->insertPlainText(fappended);
     }
 
     switch (status) {
