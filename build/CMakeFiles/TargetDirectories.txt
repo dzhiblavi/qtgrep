@@ -1,4 +1,4 @@
-/Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui/build/CMakeFiles/rebuild_cache.dir
-/Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui/build/CMakeFiles/edit_cache.dir
-/Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui/build/CMakeFiles/test_threadpool.dir
-/Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui/build/CMakeFiles/test_threadpool_autogen.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/rebuild_cache.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/test_threadpool.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/edit_cache.dir
+/home/dzhiblavi/Documents/prog/cpp/code/qtgrep/build/CMakeFiles/test_threadpool_autogen.dir

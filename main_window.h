@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QCommonStyle>
 #include <QFileDialog>
+#include <QScrollBar>
 #include <QColorDialog>
 
 #include "thread_pool.h"
@@ -32,6 +33,7 @@ private:
     } status;
 
     void update_ui();
+    void update_view();
 
     Ui::main_window* ui;
     QTimer timer;

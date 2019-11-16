@@ -6,6 +6,7 @@
 #define TEST_GREPUI_FAULT_INJECTION_HPP
 
 #include <functional>
+#include <cassert>
 
 struct injected_fault : std::runtime_error {
     using std::runtime_error::runtime_error;

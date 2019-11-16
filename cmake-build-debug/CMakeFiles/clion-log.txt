@@ -1,4 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/dzhiblavi/Documents/prog/cpp/code/qtgrep/qt_grep_ui/cmake-build-debug

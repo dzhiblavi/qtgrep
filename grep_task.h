@@ -34,9 +34,14 @@ class grep_task : public task {
     mutable std::mutex fm_;
     std::vector<QString> result_;
     std::vector<QString> fail_;
+    std::shared_ptr<grep_task> self_pointer;
+
+    grep_task(QString path, QString substr, thread_pool& tp) noexcept;
+    void set_self_ptr_(std::shared_ptr<grep_task> const& ptr);
 
 public:
-    grep_task(QString path, QString substr, thread_pool& tp) noexcept;
+    static std::shared_ptr<grep_task> create(QString path, QString substr,
+                                      thread_pool& tp) noexcept;
 
     std::vector<QString> get_result() const;
     std::vector<QString> get_result(size_t count) const;
@@ -66,18 +71,18 @@ public:
 
 class file_grep_subtask : public task {
 public:
-    file_grep_subtask(QString path, grep_task* parent, thread_pool& tp) noexcept;
+    file_grep_subtask(QString path, std::shared_ptr<grep_task> parent, thread_pool& tp) noexcept;
     void run() noexcept override;
     void prepare() noexcept override;
 
 private:
     void try_add_fail(QString const& str) noexcept;
-    static void patch(std::vector<QString>&, std::vector<QString>&, std::mutex&);
+    void patch(std::vector<QString>&, std::vector<QString>&, std::mutex&);
     void add_result(QString line, int index, int lineid);
     QString construct_result(QString const& line, int index, int lineid);
 
     QString path_;
-    grep_task* parent_;
+    std::shared_ptr<grep_task> parent_;
     std::vector<QString> result_;
     std::vector<QString> fail_;
 };

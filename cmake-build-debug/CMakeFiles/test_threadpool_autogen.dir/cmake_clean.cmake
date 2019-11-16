@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "test_threadpool_autogen"
+  "CMakeFiles/test_threadpool_autogen.dir/AutogenOldSettings.txt"
   "CMakeFiles/test_threadpool_autogen"
   "test_threadpool_autogen/mocs_compilation.cpp"
 )

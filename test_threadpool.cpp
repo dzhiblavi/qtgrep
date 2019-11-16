@@ -201,7 +201,7 @@ TEST(grep_background, empty_dir) {
         thread_pool tp(2);
         auto gtask = std::make_shared<grep_task>("/Users/dzhiblavi/Documents"
                                                  "/prog/cpp/code/qtgrep"
-                                                 "/qt_grep_ui/test_dir/empty_dir", "abacaba", tp);
+                                                 "/test/empty_dir", "abacaba", tp);
         tp.enqueue(gtask);
         WAIT;
         auto v = gtask->get_result();
@@ -259,4 +259,3 @@ TEST(grep_background, empty_substr) {
         std::cout << x.toStdString();
     }
 }
-
